@@ -1,0 +1,191 @@
+/**
+ * Al-Baron — Capabilities page components + scroll-reveal animations.
+ */
+
+/* ---- Scroll reveal (only when JS is active; reduced-motion safe) ---- */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  will-change: opacity, transform;
+}
+
+html.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+html.js [data-reveal-delay='1'] {
+  transition-delay: 0.1s;
+}
+
+html.js [data-reveal-delay='2'] {
+  transition-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+  }
+}
+
+/* ---- Capabilities hero ---- */
+.cap-hero {
+  position: relative;
+  min-block-size: clamp(420px, 60vh, 640px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.cap-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.cap-hero__media img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.cap-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(13, 13, 15, 0.6), rgba(13, 13, 15, 0.82) 70%, var(--bg));
+}
+
+.cap-hero__inner {
+  max-width: 740px;
+  padding-block: 5rem;
+}
+
+.cap-hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* ---- Section imagery ---- */
+.cap-intro__img img,
+.cap-feature__img img {
+  inline-size: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* ---- Process timeline ---- */
+.process {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+
+@media (max-width: 900px) {
+  .process {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .process {
+    grid-template-columns: 1fr;
+  }
+}
+
+.process__step {
+  padding: 2rem 1.6rem;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--speed) var(--ease), transform var(--speed) var(--ease);
+}
+
+.process__step:hover {
+  border-color: var(--gold-line);
+  transform: translateY(-4px);
+}
+
+.process__num {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--gold);
+  margin-block-end: 0.8rem;
+}
+
+.process__title {
+  font-size: 1.3rem;
+  margin-block-end: 0.5rem;
+}
+
+/* ---- Tick list ---- */
+.ticklist {
+  list-style: none;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.ticklist li {
+  position: relative;
+  padding-inline-start: 1.9rem;
+  color: var(--ink-soft);
+}
+
+.ticklist li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 0.45em;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px var(--gold-soft);
+}
+
+/* ---- Certification cards ---- */
+.cert-card {
+  padding: 2rem 1.6rem;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: border-color var(--speed) var(--ease), transform var(--speed) var(--ease);
+}
+
+.cert-card:hover {
+  border-color: var(--gold-line);
+  transform: translateY(-4px);
+}
+
+.cert-card__icon {
+  inline-size: 56px;
+  block-size: 56px;
+  margin: 0 auto 1.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+
+.cert-card__icon svg {
+  inline-size: 26px;
+  block-size: 26px;
+}
+
+.cert-card h3 {
+  font-size: 1.2rem;
+  margin-block-end: 0.5rem;
+}

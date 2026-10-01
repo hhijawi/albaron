@@ -1,0 +1,46 @@
+albaron_core.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\HomeController::view'
+    _title: 'Al-Baron — Natural Stone & Marble'
+  requirements:
+    _access: 'TRUE'
+
+albaron_core.products:
+  path: '/products'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\ProductsController::view'
+    _title: 'Products'
+  requirements:
+    _access: 'TRUE'
+
+albaron_core.products_ajax:
+  path: '/products-ajax'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\ProductsController::ajax'
+  requirements:
+    _access: 'TRUE'
+
+albaron_core.gallery:
+  path: '/gallery'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\GalleryController::view'
+    _title: 'Gallery'
+  requirements:
+    _access: 'TRUE'
+
+albaron_core.capabilities:
+  path: '/capabilities'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\CapabilitiesController::view'
+    _title: 'Capabilities & Certifications'
+  requirements:
+    _access: 'TRUE'
+
+albaron_core.contact:
+  path: '/contact'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\ContactController::view'
+    _title: 'Contact'
+  requirements:
+    _access: 'TRUE'

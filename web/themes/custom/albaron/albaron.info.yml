@@ -1,0 +1,37 @@
+name: Al-Baron
+type: theme
+base theme: stable9
+description: 'Premium dark & gold bilingual theme for Al-Baron natural stone & marble. Built for speed, RTL/LTR parity and export-buyer conversion.'
+package: Al-Baron
+core_version_requirement: ^10 || ^11
+libraries:
+  - albaron/global
+libraries-override:
+  # Keep core CSS minimal; we ship our own design system.
+  stable9/base: false
+
+regions:
+  header: 'Header'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  highlighted: 'Highlighted'
+  breadcrumb: 'Breadcrumb'
+  hero: 'Hero'
+  content_top: 'Content top'
+  content: 'Content'
+  content_bottom: 'Content bottom'
+  sidebar: 'Sidebar'
+  footer_top: 'Footer top'
+  footer: 'Footer'
+  footer_bottom: 'Footer bottom'
+
+features:
+  favicon: true
+  logo: true
+  node_user_picture: false
+  comment_user_picture: false
+  comment_user_verification: false
+
+ckeditor5-stylesheets:
+  - css/base.css
+  - css/components.css

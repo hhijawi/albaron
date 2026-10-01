@@ -1,0 +1,115 @@
+{#
+/**
+ * @file
+ * Al-Baron theme — main page layout.
+ */
+#}
+<div class="page">
+
+  <header class="site-header" role="banner">
+    <div class="container container--wide">
+      <div class="site-header__inner">
+
+        <a href="{{ path('<front>') }}" class="site-branding" rel="home" aria-label="{{ site_name }}">
+          <span class="site-branding__logo"><img src="{{ base_path ~ directory }}/logo.png" width="170" height="295" alt="{{ site_name }}"></span>
+          <span>
+            <span class="site-branding__name">AL&#8209;<b>BARON</b></span>
+            <span class="site-branding__tag">{{ 'Natural Stone & Marble'|t }}</span>
+          </span>
+        </a>
+
+        <nav class="primary-nav" role="navigation" aria-label="{{ 'Primary'|t }}">
+          {{ drupal_menu('main') }}
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-switcher">{{ drupal_block('language_block:language_interface', wrapper=false) }}</div>
+          <a href="{{ path('albaron_core.contact') }}" class="btn btn--primary btn--sm">{{ 'Request a Quote'|t }}</a>
+          <button class="nav-toggle" aria-label="{{ 'Toggle menu'|t }}" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+  <div class="nav-backdrop"></div>
+
+  {% if page.hero %}
+    {{ page.hero }}
+  {% endif %}
+
+  {% if page.breadcrumb %}
+    <div class="breadcrumb-bar">
+      <div class="container container--wide">{{ page.breadcrumb }}</div>
+    </div>
+  {% endif %}
+
+  <main role="main" id="main-content">
+    {% if page.highlighted %}
+      <div class="container">{{ page.highlighted }}</div>
+    {% endif %}
+
+    {% if page.content_top %}{{ page.content_top }}{% endif %}
+
+    {{ page.content }}
+
+    {% if page.content_bottom %}{{ page.content_bottom }}{% endif %}
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="site-footer__grid">
+
+        <div class="site-footer__brand">
+          <a href="{{ path('<front>') }}" class="site-branding" rel="home">
+            <span class="site-branding__logo"><img src="{{ base_path ~ directory }}/logo.png" width="170" height="295" alt="{{ site_name }}"></span>
+            <span class="site-branding__name">AL&#8209;<b>BARON</b></span>
+          </a>
+          <p style="margin-top:1.2rem;max-width:34ch;">
+            {{ 'Premium Palestinian natural stone & marble from Bethlehem — quarried, crafted and delivered for export projects worldwide.'|t }}
+          </p>
+          <div class="social" aria-label="{{ 'Social media'|t }}">
+            <a href="https://www.facebook.com/ALBARONCOM/" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9c0-.6.4-1 1-1z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/albaron.stone/" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://wa.me/972595554446" aria-label="WhatsApp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-heading">{{ 'Explore'|t }}</div>
+          {{ drupal_menu('main') }}
+        </div>
+
+        <div>
+          <div class="footer-heading">{{ 'Contact'|t }}</div>
+          <ul class="footer-menu">
+            <li>{{ 'Bethlehem, Palestine'|t }}</li>
+            <li><a href="https://wa.me/972595554446">+972 59&#8209;555&#8209;4446</a></li>
+            <li><a href="mailto:info@albaron.ps">info@albaron.ps</a></li>
+            <li>@Albaron.stone</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">{{ 'Get the Catalogue'|t }}</div>
+          <p style="font-size:.9rem;">{{ 'Download our full bilingual stone & marble catalogue.'|t }}</p>
+          <a href="#" class="btn btn--ghost btn--sm">{{ 'Download PDF'|t }}</a>
+        </div>
+
+      </div>
+
+      <div class="site-footer__bottom">
+        <span>&copy; {{ 'now'|date('Y') }} Al-Baron Co. {{ 'All rights reserved.'|t }}</span>
+        <span>{{ 'Crafted by TopShelf Technology'|t }}</span>
+      </div>
+    </div>
+  </footer>
+
+</div>

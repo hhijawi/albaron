@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Al-Baron theme preprocess and theming logic.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function albaron_preprocess_html(array &$variables): void {
+  // Expose language direction helper class on the body.
+  $language = \Drupal::languageManager()->getCurrentLanguage();
+  $variables['attributes']['class'][] = 'lang-' . $language->getId();
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function albaron_preprocess_page(array &$variables): void {
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function albaron_preprocess_node(array &$variables): void {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  if ($node->bundle() === 'product') {
+    $variables['attributes']['class'][] = 'product-node';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function albaron_theme_suggestions_page_alter(array &$suggestions, array $variables): void {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if (is_object($node)) {
+      $suggestions[] = 'page__' . $node->bundle();
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for breadcrumb.html.twig.
+ *
+ * Makes the breadcrumb meaningful: hides it on the front page, adds a Products
+ * crumb for product detail pages, and appends the current page as the last crumb.
+ */
+function albaron_preprocess_breadcrumb(array &$variables): void {
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $variables['breadcrumb'] = [];
+    return;
+  }
+
+  $route_match = \Drupal::routeMatch();
+  // The core path-based builder already adds parent segments (e.g. Products);
+  // we only append the current page as the final, non-link crumb.
+  if ($route = $route_match->getRouteObject()) {
+    $title = \Drupal::service('title_resolver')->getTitle(\Drupal::request(), $route);
+    if (is_array($title)) {
+      $title = \Drupal::service('renderer')->renderInIsolation($title);
+    }
+    if (!empty($title)) {
+      $variables['breadcrumb'][] = ['text' => $title, 'url' => ''];
+    }
+  }
+
+  $variables['#cache']['contexts'][] = 'url';
+}

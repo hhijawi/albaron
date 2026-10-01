@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Al-Baron Core module — theme hooks for the front-end experience.
+ */
+
+use Drupal\albaron_core\ProductHelper;
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ *
+ * Attaches structured product presentation data for the product template.
+ */
+function albaron_core_preprocess_node(array &$variables): void {
+  $node = $variables['node'];
+  if ($node->bundle() !== 'product') {
+    return;
+  }
+  $variables['albaron'] = [
+    'code' => ProductHelper::scalar($node, 'field_product_code'),
+    'summary' => ProductHelper::scalar($node, 'field_summary'),
+    'family' => ProductHelper::firstTerm($node, 'field_stone_family'),
+    'colors' => ProductHelper::terms($node, 'field_color'),
+    'finishes' => ProductHelper::terms($node, 'field_finish'),
+    'applications' => ProductHelper::terms($node, 'field_application'),
+    'dimensions' => ProductHelper::scalar($node, 'field_dimensions'),
+    'thickness' => ProductHelper::scalar($node, 'field_thickness'),
+    'packaging' => ProductHelper::scalar($node, 'field_packaging'),
+    'images' => ProductHelper::images($node, 'product_thumb'),
+  ];
+}
+
+/**
+ * Implements hook_theme().
+ */
+function albaron_core_theme($existing, $type, $theme, $path): array {
+  return [
+    'albaron_home' => [
+      'variables' => [
+        'featured' => [],
+        'families' => [],
+        'gallery' => [],
+        'stats' => [],
+      ],
+    ],
+    'albaron_products' => [
+      'variables' => [
+        'inner' => NULL,
+      ],
+    ],
+    'albaron_products_inner' => [
+      'variables' => [
+        'products' => [],
+        'filters' => [],
+        'active' => [],
+        'active_summary' => [],
+        'total' => 0,
+      ],
+    ],
+    'albaron_gallery' => [
+      'variables' => [
+        'images' => [],
+      ],
+    ],
+    'albaron_contact' => [
+      'variables' => [
+        'form' => NULL,
+      ],
+    ],
+    'albaron_capabilities' => [
+      'variables' => [
+        'images' => [],
+        'steps' => [],
+        'features' => [],
+        'stats' => [],
+        'certifications' => [],
+      ],
+    ],
+  ];
+}

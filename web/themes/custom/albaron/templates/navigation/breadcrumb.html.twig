@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Al-Baron — professional horizontal breadcrumb.
+ */
+#}
+{% if breadcrumb|length > 1 %}
+  <nav class="breadcrumb" role="navigation" aria-label="{{ 'Breadcrumb'|t }}">
+    <ol class="breadcrumb__list">
+      {% for item in breadcrumb %}
+        <li class="breadcrumb__item">
+          {% if item.url and not loop.last %}
+            <a href="{{ item.url }}">{{ item.text }}</a>
+          {% else %}
+            <span aria-current="page">{{ item.text }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

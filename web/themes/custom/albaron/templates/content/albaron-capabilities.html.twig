@@ -1,0 +1,125 @@
+{#
+/**
+ * @file
+ * Al-Baron Capabilities & Certifications — rich, image-led, animated.
+ * Available: images, steps, features, stats, certifications.
+ */
+#}
+<section class="cap-hero">
+  <div class="cap-hero__media">
+    {% if images.hero %}<img src="{{ images.hero }}" alt="{{ 'Al-Baron stone production'|t }}" fetchpriority="high">{% endif %}
+  </div>
+  <div class="container container--wide">
+    <div class="cap-hero__inner" data-reveal>
+      <span class="eyebrow">{{ 'Our Capabilities'|t }}</span>
+      <h1>{{ 'Engineered for'|t }} <em>{{ 'Export Excellence'|t }}</em></h1>
+      <p class="lead">{{ 'A vertically integrated stone operation — from quarry to quay — built to hold colour, dimension and finish across the most demanding international projects.'|t }}</p>
+    </div>
+  </div>
+</section>
+
+{# Intro split #}
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">{{ 'Vertically Integrated'|t }}</span>
+        <h2>{{ 'One accountable partner, every step of the way.'|t }}</h2>
+        <p class="lead">{{ 'Because we control the full journey — extraction, sawing, finishing, inspection and export packing — what you specify is exactly what arrives on site.'|t }}</p>
+        <p>{{ 'That control is what lets us promise consistency at scale: the same colour, the same calibration and the same finish, order after order.'|t }}</p>
+      </div>
+      <div class="cap-intro__img" data-reveal data-reveal-delay="1">
+        {% if images.intro %}<img src="{{ images.intro }}" alt="{{ 'Stone finishing'|t }}" loading="lazy">{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Process timeline #}
+<section class="section section--panel">
+  <div class="container container--wide">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">{{ 'The Process'|t }}</span>
+      <h2>{{ 'From Quarry to Quay'|t }}</h2>
+    </div>
+    <div class="process">
+      {% for step in steps %}
+        <div class="process__step" data-reveal data-reveal-delay="{{ loop.index0 % 3 }}">
+          <h3 class="process__title">{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# Feature sections (alternating) #}
+{% for f in features %}
+  <section class="section">
+    <div class="container">
+      <div class="split{{ loop.index is odd ? '' : ' split--reverse' }}">
+        <div data-reveal>
+          <span class="eyebrow">{{ f.eyebrow }}</span>
+          <h2>{{ f.title }}</h2>
+          <p class="lead">{{ f.text }}</p>
+          <ul class="ticklist">
+            {% for p in f.points %}<li>{{ p }}</li>{% endfor %}
+          </ul>
+        </div>
+        <div class="cap-feature__img" data-reveal data-reveal-delay="1">
+          {% if f.image %}<img src="{{ f.image }}" alt="{{ f.title }}" loading="lazy">{% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+
+{# Capacity stats #}
+<section class="section section--panel">
+  <div class="container container--wide">
+    <div class="stats" data-reveal>
+      {% for s in stats %}
+        <div class="stat">
+          <div class="stat__num">{{ s.num }}{{ s.suffix }}</div>
+          <div class="stat__label">{{ s.label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# Certifications / quality grid #}
+<section class="section">
+  <div class="container container--wide">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">{{ 'Quality & Certifications'|t }}</span>
+      <h2>{{ 'Confidence, Documented'|t }}</h2>
+      <p class="lead" style="margin-inline:auto;">{{ 'Certificates and technical documentation are provided on request and published here once verified.'|t }}</p>
+    </div>
+    <div class="grid grid--4">
+      {% for c in certifications %}
+        <div class="cert-card" data-reveal data-reveal-delay="{{ loop.index0 % 4 }}">
+          <div class="cert-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>{{ c.title }}</h3>
+          <p>{{ c.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# CTA #}
+<section class="section">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <span class="eyebrow" style="justify-content:center;">{{ 'Specify with Confidence'|t }}</span>
+      <h2 style="max-width:22ch;margin-inline:auto;">{{ 'Request samples, specifications and a quote.'|t }}</h2>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem;">
+        <a href="{{ path('albaron_core.contact') }}" class="btn btn--primary">{{ 'Request a Quote'|t }}</a>
+        <a href="{{ path('albaron_core.products') }}" class="btn btn--ghost">{{ 'Explore Products'|t }}</a>
+      </div>
+    </div>
+  </div>
+</section>

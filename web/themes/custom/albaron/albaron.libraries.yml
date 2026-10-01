@@ -1,0 +1,17 @@
+global:
+  version: 1.x
+  css:
+    base:
+      'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap': { type: external, minified: true }
+      css/base.css: {}
+    layout:
+      css/layout.css: {}
+    component:
+      css/components.css: {}
+      css/capabilities.css: {}
+  js:
+    js/albaron.js: { attributes: { defer: true } }
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupalSettings

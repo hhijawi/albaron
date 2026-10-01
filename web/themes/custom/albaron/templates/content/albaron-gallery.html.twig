@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Al-Baron gallery page. Available: images (array of {src,large,alt,caption}).
+ */
+#}
+<section class="page-banner">
+  <div class="container container--wide">
+    <span class="eyebrow">{{ 'Visual Portfolio'|t }}</span>
+    <h1>{{ 'Gallery'|t }}</h1>
+    <p class="lead" style="max-width:56ch;">{{ 'Surfaces, finishes and applications — a closer look at the character of Al-Baron natural stone.'|t }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--wide">
+    {% if images %}
+      <div class="masonry">
+        {% for img in images %}
+          <figure class="masonry__item" data-reveal data-reveal-delay="{{ loop.index0 % 3 }}">
+            <img src="{{ img.src }}" data-large="{{ img.large }}" data-caption="{{ img.caption }}" alt="{{ img.alt }}" loading="lazy">
+            <figcaption class="g-overlay">
+              <span class="g-overlay__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>
+              </span>
+              <span class="g-overlay__body">
+                {% if img.family %}<span class="g-overlay__meta">{{ img.family }}</span>{% endif %}
+                <span class="g-overlay__title">{{ img.caption }}</span>
+              </span>
+            </figcaption>
+          </figure>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>{{ 'Gallery images will appear here once products are published.'|t }}</p>
+    {% endif %}
+  </div>
+</section>

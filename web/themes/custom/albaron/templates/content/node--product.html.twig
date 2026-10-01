@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Al-Baron — product detail.
+ *
+ * Custom presentation using the `albaron` variable plus `content` for
+ * body / technical data. Empty specs are never shown as placeholders.
+ */
+#}
+<article{{ attributes.addClass('product-node') }}>
+
+  <section class="section">
+    <div class="container container--wide">
+      <div class="product-hero">
+
+        {# Gallery #}
+        <div class="product-gallery" data-reveal>
+          <div class="product-gallery__main">
+            {% if albaron.images.0 %}
+              <img src="{{ albaron.images.0.large }}" data-large="{{ albaron.images.0.large }}" alt="{{ albaron.images.0.alt }}" fetchpriority="high">
+            {% endif %}
+          </div>
+          {% if albaron.images|length > 1 %}
+            <div class="product-gallery__thumbs">
+              {% for img in albaron.images %}
+                <img src="{{ img.src }}" data-large="{{ img.large }}" alt="{{ img.alt }}" loading="lazy">
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        {# Details #}
+        <div class="product-detail" data-reveal data-reveal-delay="1">
+          {% if albaron.family %}<span class="badge">{{ albaron.family }}</span>{% endif %}
+          <h1 style="margin-top:1rem;">{{ label }}</h1>
+          {% if albaron.code %}<div class="card__meta">{{ 'Product code'|t }}: <strong>{{ albaron.code }}</strong></div>{% endif %}
+          {% if albaron.summary %}<p class="lead" style="margin-top:1.2rem;">{{ albaron.summary }}</p>{% endif %}
+
+          <table class="spec-table">
+            {% if albaron.family %}<tr><th>{{ 'Material'|t }}</th><td>{{ albaron.family }}</td></tr>{% endif %}
+            {% if albaron.colors %}<tr><th>{{ 'Color'|t }}</th><td>{{ albaron.colors|join(', ') }}</td></tr>{% endif %}
+            {% if albaron.finishes %}<tr><th>{{ 'Finishes'|t }}</th><td>{{ albaron.finishes|join(', ') }}</td></tr>{% endif %}
+            {% if albaron.dimensions %}<tr><th>{{ 'Available dimensions'|t }}</th><td>{{ albaron.dimensions }}</td></tr>{% endif %}
+            {% if albaron.thickness %}<tr><th>{{ 'Thickness'|t }}</th><td>{{ albaron.thickness }}</td></tr>{% endif %}
+            {% if albaron.applications %}<tr><th>{{ 'Applications'|t }}</th><td>{{ albaron.applications|join(', ') }}</td></tr>{% endif %}
+            {% if albaron.packaging %}<tr><th>{{ 'Packaging & supply'|t }}</th><td>{{ albaron.packaging }}</td></tr>{% endif %}
+          </table>
+
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+            <a href="{{ path('albaron_core.contact') }}?product={{ node.label|url_encode }}" class="btn btn--primary">{{ 'Enquire About This Stone'|t }}</a>
+            <a href="https://wa.me/972595554446" class="btn btn--ghost" target="_blank" rel="noopener">{{ 'WhatsApp'|t }}</a>
+          </div>
+        </div>
+
+      </div>
+
+      {# Long description / technical data #}
+      {% if content.body|render|striptags|trim or content.field_technical_data|render|striptags|trim %}
+        <div class="container--narrow" style="margin-top:3.5rem;margin-inline:0;">
+          {{ content.body }}
+          {% if content.field_technical_data|render|striptags|trim %}
+            <h3 style="margin-top:2rem;">{{ 'Technical Data'|t }}</h3>
+            {{ content.field_technical_data }}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+</article>

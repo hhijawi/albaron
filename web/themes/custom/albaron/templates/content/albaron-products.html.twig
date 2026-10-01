@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Al-Baron products page shell. Filters + results live in `inner`,
+ * which is swapped via AJAX on filter changes.
+ */
+#}
+<section class="page-banner">
+  <div class="container container--wide">
+    <span class="eyebrow">{{ 'The Collection'|t }}</span>
+    <h1>{{ 'Stone & Marble Products'|t }}</h1>
+    <p class="lead" style="max-width:56ch;">{{ 'Browse our export range of natural Palestinian stone and marble. Filter by material, colour, finish and application to find the right surface for your project.'|t }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--wide">
+    <div id="products-app" data-products-app>
+      {{ inner }}
+    </div>
+  </div>
+</section>
+

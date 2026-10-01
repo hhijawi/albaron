@@ -1,0 +1,36 @@
+# Al-Baron — Drupal 11 project .gitignore
+# Composer-managed code (restored via `composer install`).
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# Drupal scaffold files.
+/web/sites/*/settings.php
+/web/sites/*/settings.local.php
+/web/sites/*/services.yml
+
+# Runtime files & user uploads.
+/web/sites/*/files/
+/web/sites/simpletest/
+/web/sites/*/private/
+
+# DDEV local overrides.
+/.ddev/.gitignore
+/.ddev/*.yaml.bak
+
+# OS / editor noise.
+.DS_Store
+Thumbs.db
+*.swp
+
+# Business proposal document (not code) — keep out of the repo.
+_source-assets/*.docx
+
+# Keep custom code tracked (do NOT ignore):
+#   web/modules/custom/**, web/themes/custom/**, config/**, scripts/**
+
+# VS Code Local History
+.history/

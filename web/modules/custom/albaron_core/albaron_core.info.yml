@@ -1,0 +1,9 @@
+name: 'Al-Baron Core'
+type: module
+description: 'Front-end experience for Al-Baron: home, products browse with filters, and gallery.'
+package: 'Al-Baron'
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:media

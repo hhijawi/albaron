@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Al-Baron — basic page (About, Capabilities, etc.).
+ */
+#}
+<article{{ attributes }}>
+  <section class="page-banner">
+    <div class="container container--wide">
+      <span class="eyebrow">Al-Baron</span>
+      <h1>{{ label }}</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow" style="margin-inline:auto;" data-reveal>
+      {{ content }}
+    </div>
+  </section>
+</article>
