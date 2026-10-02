@@ -17,6 +17,14 @@
 /web/sites/simpletest/
 /web/sites/*/private/
 
+# Generated deployment packages, staging copies, and database backups.
+/deployment/
+/*.sql
+/*.sql.gz
+
+# Original desktop screenshots; optimized site images live in the theme.
+/Screenshot *.png
+
 # DDEV local overrides.
 /.ddev/.gitignore
 /.ddev/*.yaml.bak

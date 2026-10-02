@@ -6,6 +6,9 @@
 #}
 <article{{ attributes }}>
   <section class="page-banner">
+    <div class="page-banner__media" aria-hidden="true">
+      <img src="{{ file_url(directory ~ '/home-hero.webp') }}" alt="" fetchpriority="high">
+    </div>
     <div class="container container--wide">
       <span class="eyebrow">Al-Baron</span>
       <h1>{{ label }}</h1>

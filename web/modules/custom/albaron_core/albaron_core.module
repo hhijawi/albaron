@@ -14,21 +14,41 @@ use Drupal\albaron_core\ProductHelper;
  */
 function albaron_core_preprocess_node(array &$variables): void {
   $node = $variables['node'];
-  if ($node->bundle() !== 'product') {
+
+  if ($node->bundle() === 'product') {
+    $variables['albaron'] = [
+      'code' => ProductHelper::scalar($node, 'field_product_code'),
+      'summary' => ProductHelper::scalar($node, 'field_summary'),
+      'family' => ProductHelper::firstTerm($node, 'field_stone_family'),
+      'colors' => ProductHelper::terms($node, 'field_color'),
+      'finishes' => ProductHelper::terms($node, 'field_finish'),
+      'applications' => ProductHelper::terms($node, 'field_application'),
+      'dimensions' => ProductHelper::scalar($node, 'field_dimensions'),
+      'thickness' => ProductHelper::scalar($node, 'field_thickness'),
+      'packaging' => ProductHelper::scalar($node, 'field_packaging'),
+      'images' => ProductHelper::images($node, 'product_thumb'),
+    ];
     return;
   }
-  $variables['albaron'] = [
-    'code' => ProductHelper::scalar($node, 'field_product_code'),
-    'summary' => ProductHelper::scalar($node, 'field_summary'),
-    'family' => ProductHelper::firstTerm($node, 'field_stone_family'),
-    'colors' => ProductHelper::terms($node, 'field_color'),
-    'finishes' => ProductHelper::terms($node, 'field_finish'),
-    'applications' => ProductHelper::terms($node, 'field_application'),
-    'dimensions' => ProductHelper::scalar($node, 'field_dimensions'),
-    'thickness' => ProductHelper::scalar($node, 'field_thickness'),
-    'packaging' => ProductHelper::scalar($node, 'field_packaging'),
-    'images' => ProductHelper::images($node, 'product_thumb'),
-  ];
+
+  if ($node->bundle() === 'news') {
+    $variables['albaron'] = [
+      'summary' => ProductHelper::scalar($node, 'field_summary'),
+      'date' => \Drupal::service('date.formatter')->format($node->getCreatedTime(), 'custom', 'j M Y'),
+      'images' => ProductHelper::images($node, 'product_wide'),
+    ];
+    return;
+  }
+
+  if ($node->bundle() === 'project') {
+    $variables['albaron'] = [
+      'summary' => ProductHelper::scalar($node, 'field_summary'),
+      'location' => ProductHelper::scalar($node, 'field_location'),
+      'year' => ProductHelper::scalar($node, 'field_year'),
+      'stones' => ProductHelper::linkedNodes($node, 'field_stone_used'),
+      'images' => ProductHelper::images($node, 'product_thumb'),
+    ];
+  }
 }
 
 /**
@@ -42,6 +62,7 @@ function albaron_core_theme($existing, $type, $theme, $path): array {
         'families' => [],
         'gallery' => [],
         'stats' => [],
+        'latest_news' => NULL,
       ],
     ],
     'albaron_products' => [
@@ -63,6 +84,16 @@ function albaron_core_theme($existing, $type, $theme, $path): array {
         'images' => [],
       ],
     ],
+    'albaron_news' => [
+      'variables' => [
+        'items' => [],
+      ],
+    ],
+    'albaron_projects' => [
+      'variables' => [
+        'items' => [],
+      ],
+    ],
     'albaron_contact' => [
       'variables' => [
         'form' => NULL,
@@ -75,6 +106,15 @@ function albaron_core_theme($existing, $type, $theme, $path): array {
         'features' => [],
         'stats' => [],
         'certifications' => [],
+      ],
+    ],
+    'albaron_about' => [
+      'variables' => [
+        'images' => [],
+        'values' => [],
+        'markets' => [],
+        'stats' => [],
+        'milestones' => [],
       ],
     ],
   ];

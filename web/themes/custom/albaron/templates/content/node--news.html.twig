@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Al-Baron — news article detail. Uses the `albaron` variable (date, image,
+ * summary) plus `content` for the body.
+ */
+#}
+<article{{ attributes.addClass('news-node') }}>
+  <section class="page-banner">
+    <div class="page-banner__media" aria-hidden="true">
+      <img src="{{ albaron.images.0.large|default(file_url(directory ~ '/home-hero.webp')) }}" alt="" fetchpriority="high">
+    </div>
+    <div class="container container--narrow" style="margin-inline:auto;">
+      <span class="eyebrow">{{ 'News'|t }}</span>
+      <h1>{{ label }}</h1>
+      {% if albaron.date %}<div class="article-meta">{{ albaron.date }}</div>{% endif %}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow" style="margin-inline:auto;" data-reveal>
+      {% if albaron.images.0 %}
+        <figure class="article-figure">
+          <img src="{{ albaron.images.0.large }}" alt="{{ albaron.images.0.alt }}" fetchpriority="high">
+        </figure>
+      {% endif %}
+
+      {% if albaron.summary %}<p class="lead">{{ albaron.summary }}</p>{% endif %}
+
+      <div class="article-body">{{ content.body }}</div>
+
+      <p style="margin-top:2.5rem;">
+        <a href="{{ path('albaron_core.news') }}" class="btn btn--ghost btn--sm">&larr; {{ 'Back to News'|t }}</a>
+      </p>
+    </div>
+  </section>
+</article>

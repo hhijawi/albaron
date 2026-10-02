@@ -5,6 +5,9 @@
  */
 #}
 <section class="page-banner">
+  <div class="page-banner__media" aria-hidden="true">
+    <img src="{{ images.0.large|default(file_url(directory ~ '/home-hero.webp')) }}" alt="" fetchpriority="high">
+  </div>
   <div class="container container--wide">
     <span class="eyebrow">{{ 'Visual Portfolio'|t }}</span>
     <h1>{{ 'Gallery'|t }}</h1>

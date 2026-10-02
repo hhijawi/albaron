@@ -9,12 +9,15 @@
 <div class="products-layout">
 
   {# ---- Faceted filter sidebar ---- #}
-  <aside class="filters" aria-label="{{ 'Product filters'|t }}">
+  <aside class="filters" id="product-filters" aria-label="{{ 'Product filters'|t }}">
     <div class="filters__head">
       <span class="filters__title">{{ 'Refine'|t }}</span>
-      {% if active %}
-        <a href="{{ path('albaron_core.products') }}" class="filters__reset js-filter">{{ 'Reset all'|t }}</a>
-      {% endif %}
+      <div class="filters__head-actions">
+        {% if active %}
+          <a href="{{ path('albaron_core.products') }}" class="filters__reset js-filter">{{ 'Reset all'|t }}</a>
+        {% endif %}
+        <button type="button" class="filters__close" aria-label="{{ 'Close'|t }}">&times;</button>
+      </div>
     </div>
 
     {% for group in filters %}
@@ -40,6 +43,11 @@
 
   {# ---- Results ---- #}
   <div class="products-main">
+    <button type="button" class="filters-toggle" aria-expanded="false" aria-controls="product-filters">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 5h18l-7 8v6l-4 2v-8L3 5z"/></svg>
+      <span>{{ 'Filters'|t }}</span>
+      {% if active_summary %}<span class="filters-toggle__count">{{ active_summary|length }}</span>{% endif %}
+    </button>
     <div class="products-toolbar">
       <span class="products-count">{{ '@count results'|t({'@count': total}) }}</span>
       {% if active_summary %}
@@ -82,5 +90,7 @@
       </div>
     {% endif %}
   </div>
+
+  <div class="filters-backdrop" aria-hidden="true"></div>
 
 </div>

@@ -1,0 +1,713 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: albaron\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5);\n"
+
+msgid "@count results"
+msgstr "@count نتيجة"
+
+msgid "Switch to light theme"
+msgstr "التبديل إلى المظهر الفاتح"
+
+msgid "Switch to dark theme"
+msgstr "التبديل إلى المظهر الداكن"
+
+msgid "Latest News"
+msgstr "آخر الأخبار"
+
+msgid "All News"
+msgstr "جميع الأخبار"
+
+msgid "Main Street, Marah Rabah, Bethlehem, Palestine"
+msgstr "الشارع الرئيسي، مراح رباح، بيت لحم، فلسطين"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "A controlled workflow, quarry to quay"
+msgstr "سير عمل محكوم، من المحجر إلى الميناء"
+
+msgid "A heritage of stone, refined for the world’s finest projects."
+msgstr "إرثٌ من الحجر، مصقولٌ لأرقى المشاريع في العالم."
+
+msgid "A material with centuries of character."
+msgstr "مادةٌ تحمل طابعاً يمتدّ عبر القرون."
+
+msgid "A reply from our export team, typically within one business day"
+msgstr "ردٌّ من فريق التصدير لدينا، عادةً خلال يوم عمل واحد"
+
+msgid "Project Examples"
+msgstr "نماذج مشاريع"
+
+msgid "Illustrative project concepts in Bethlehem, Ramallah, Hebron and Nablus, showing local uses of natural stone and marble."
+msgstr "تصورات توضيحية لمشاريع في بيت لحم ورام الله والخليل ونابلس، تبرز استخدامات الحجر الطبيعي والرخام محليا."
+
+msgid "A selection of international projects finished with Al-Baron natural stone and marble — from hotel facades to private interiors."
+msgstr "مجموعة مختارة من المشاريع الدولية المنفَّذة بحجر ورخام البارون الطبيعي — من واجهات الفنادق إلى التصاميم الداخلية الخاصة."
+
+msgid "A vertically integrated stone operation — from quarry to quay — built to hold colour, dimension and finish across the most demanding international projects."
+msgstr "عمليةٌ متكاملة رأسياً — من المحجر إلى الميناء — مصمَّمة للحفاظ على اللون والأبعاد والتشطيب في أكثر المشاريع الدولية تطلُّباً."
+
+msgid "Al-Baron Palestinian stone"
+msgstr "حجر البارون الفلسطيني"
+
+msgid "Al-Baron location"
+msgstr "موقع البارون"
+
+msgid "Al-Baron natural stone"
+msgstr "حجر البارون الطبيعي"
+
+msgid "Al-Baron stone production"
+msgstr "إنتاج حجر البارون"
+
+msgid "Al-Baron — Natural Stone & Marble"
+msgstr "البارون — حجرٌ ورخامٌ طبيعي"
+
+msgid "All Projects"
+msgstr "جميع المشاريع"
+
+msgid "All rights reserved."
+msgstr "جميع الحقوق محفوظة."
+
+msgid "Announcements, trade-show appearances and milestones from Al-Baron — Palestinian natural stone for the world."
+msgstr "إعلانات ومشاركات في المعارض ومحطات بارزة من البارون — حجرٌ فلسطيني طبيعي للعالم."
+
+msgid "Applications"
+msgstr "الاستخدامات"
+
+msgid "Asia"
+msgstr "آسيا"
+
+msgid "Authentic Palestinian origin"
+msgstr "أصلٌ فلسطيني أصيل"
+
+msgid "Authenticity"
+msgstr "الأصالة"
+
+msgid "Available dimensions"
+msgstr "الأبعاد المتوفّرة"
+
+msgid "Back to News"
+msgstr "العودة إلى الأخبار"
+
+msgid "Because we control the full journey — extraction, sawing, finishing, inspection and export packing — what you specify is exactly what arrives on site."
+msgstr "لأننا نتحكّم في الرحلة الكاملة — الاستخراج والنشر والتشطيب والفحص والتغليف للتصدير — فإن ما تحدّده هو تماماً ما يصل إلى الموقع."
+
+msgid "Bethlehem stone"
+msgstr "حجر بيت لحم"
+
+msgid "Bethlehem · Palestine · Since 1998"
+msgstr "بيت لحم · فلسطين · منذ 1998"
+
+msgid "Bethlehem, Palestine"
+msgstr "بيت لحم، فلسطين"
+
+msgid "Block Sawing"
+msgstr "نشر الكتل"
+
+msgid "Blocks are hand-selected at the quarry for colour, density and character."
+msgstr "تُنتقى الكتل يدوياً في المحجر حسب اللون والكثافة والطابع."
+
+msgid "Breadcrumb"
+msgstr "مسار التنقّل"
+
+msgid "Bridge cutters size slabs and tiles to precise architectural specifications."
+msgstr "تقصّ آلات الجسر الألواح والبلاط وفق مواصفات معمارية دقيقة."
+
+msgid "Bring authentic Palestinian stone to your project."
+msgstr "أضِف الحجر الفلسطيني الأصيل إلى مشروعك."
+
+msgid "Browse our export range of natural Palestinian stone and marble. Filter by material, colour, finish and application to find the right surface for your project."
+msgstr "تصفّح مجموعة التصدير من الحجر والرخام الفلسطيني الطبيعي. صفِّ النتائج حسب المادة واللون والتشطيب والاستخدام للعثور على السطح المناسب لمشروعك."
+
+msgid "Browse the Range"
+msgstr "تصفّح المجموعة"
+
+msgid "Built for Export Confidence"
+msgstr "مصمَّمٌ لثقة التصدير"
+
+msgid "Calibrated thickness"
+msgstr "سماكةٌ معايَرة"
+
+msgid "Calibrated thickness, consistent colour and repeatable finishes, held to tolerance on every order, large or small."
+msgstr "سماكةٌ معايَرة ولونٌ متناسق وتشطيباتٌ قابلة للتكرار، تُحفظ ضمن التفاوتات في كل طلب، كبيراً كان أم صغيراً."
+
+msgid "Capabilities & Certifications"
+msgstr "الإمكانات والشهادات"
+
+msgid "Case Studies"
+msgstr "دراسات حالة"
+
+msgid "Certificates and technical documentation are provided on request and published here once verified."
+msgstr "تُقدَّم الشهادات والوثائق الفنية عند الطلب وتُنشر هنا بعد التحقق منها."
+
+msgid "Certified Quality"
+msgstr "جودةٌ معتمدة"
+
+msgid "Clear filters"
+msgstr "مسح عوامل التصفية"
+
+msgid "Color"
+msgstr "اللون"
+
+msgid "Colour"
+msgstr "اللون"
+
+msgid "Colour consistency checks"
+msgstr "فحوصات تناسق اللون"
+
+msgid "Company"
+msgstr "الشركة"
+
+msgid "Confidence, Documented"
+msgstr "ثقةٌ موثَّقة"
+
+msgid "Consistent colour batching"
+msgstr "تجميع دفعات بلونٍ متناسق"
+
+msgid "Contact"
+msgstr "اتصل بنا"
+
+msgid "Crafted by TopShelf Technology"
+msgstr "من تطوير TopShelf Technology"
+
+msgid "Custom dimensions on request"
+msgstr "أبعادٌ مخصّصة عند الطلب"
+
+msgid "Cutting & Calibration"
+msgstr "القص والمعايرة"
+
+msgid "Dense and weather-resistant"
+msgstr "كثيفٌ ومقاوم للعوامل الجوية"
+
+msgid "Dimensional accuracy"
+msgstr "دقة الأبعاد"
+
+msgid "Documented Quality"
+msgstr "جودةٌ موثَّقة"
+
+msgid "Documented inspection of colour consistency, dimensional accuracy and surface finish before packing. Custom finishes and sizes are available on request."
+msgstr "فحصٌ موثَّق لتناسق اللون ودقة الأبعاد وتشطيب السطح قبل التغليف. تتوفّر تشطيبات وأحجام مخصّصة عند الطلب."
+
+msgid "Download Catalogue"
+msgstr "تحميل الكتالوج"
+
+msgid "Download PDF"
+msgstr "تحميل ملف PDF"
+
+msgid "Download our full bilingual stone & marble catalogue."
+msgstr "حمّل كتالوج الحجر والرخام الكامل بلغتين."
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Engineered for"
+msgstr "مصمَّمٌ من أجل"
+
+msgid "Enquire About This Stone"
+msgstr "استفسر عن هذا الحجر"
+
+msgid "Equipped for scale and precision"
+msgstr "مجهَّزٌ للحجم والدقة"
+
+msgid "Europe"
+msgstr "أوروبا"
+
+msgid "Every batch is inspected for colour, dimension and finish before it leaves."
+msgstr "تُفحص كل دفعة من حيث اللون والأبعاد والتشطيب قبل مغادرتها."
+
+msgid "Every block is selected for character and consistency, then cut, finished and packed to exacting export standards — so what you specify is exactly what arrives on site."
+msgstr "تُنتقى كل كتلة حسب الطابع والتناسق، ثم تُقصّ وتُشطَّب وتُغلَّف وفق معايير تصدير دقيقة — لذا فإن ما تحدّده هو تماماً ما يصل إلى الموقع."
+
+msgid "Experienced export logistics and secure crating deliver Palestinian stone reliably to projects across the Gulf, Europe and beyond."
+msgstr "خدماتٌ لوجستية متمرّسة وتغليفٌ آمن توصّل الحجر الفلسطيني بموثوقية إلى المشاريع في الخليج وأوروبا وما بعدها."
+
+msgid "Experienced logistics"
+msgstr "خدماتٌ لوجستية متمرّسة"
+
+msgid "Explore"
+msgstr "استكشف"
+
+msgid "Explore Products"
+msgstr "استكشف المنتجات"
+
+msgid "Explore by Material"
+msgstr "استكشف حسب المادة"
+
+msgid "Explore the Collection"
+msgstr "استكشف المجموعة"
+
+msgid "Export Compliance"
+msgstr "الامتثال للتصدير"
+
+msgid "Export Excellence"
+msgstr "تميُّزٌ في التصدير"
+
+msgid "Export Inquiries"
+msgstr "استفسارات التصدير"
+
+msgid "Export Markets"
+msgstr "أسواق التصدير"
+
+msgid "Export Packing"
+msgstr "التغليف للتصدير"
+
+msgid "Export Readiness"
+msgstr "الجاهزية للتصدير"
+
+msgid "Export markets"
+msgstr "أسواق التصدير"
+
+msgid "Export-grade crating"
+msgstr "تغليفٌ بمستوى التصدير"
+
+msgid "Export-ready"
+msgstr "جاهزٌ للتصدير"
+
+msgid "Featured Stone & Marble"
+msgstr "حجرٌ ورخامٌ مميّز"
+
+msgid "Find Us"
+msgstr "موقعنا"
+
+msgid "Finish"
+msgstr "التشطيب"
+
+msgid "Finish types"
+msgstr "أنواع التشطيب"
+
+msgid "Finish verification"
+msgstr "التحقق من التشطيب"
+
+msgid "Finishes"
+msgstr "التشطيبات"
+
+msgid "For over twenty years we have combined traditional Palestinian stone craft with modern processing to deliver consistent colour, calibrated thickness and reliable export quality."
+msgstr "على مدى أكثر من عشرين عاماً، جمعنا بين حرفة الحجر الفلسطيني التقليدية والمعالجة الحديثة لتقديم لونٍ متناسق وسماكةٍ معايَرة وجودة تصدير موثوقة."
+
+msgid "From Local Craft to Global Supply"
+msgstr "من الحرفة المحلية إلى التوريد العالمي"
+
+msgid "From Quarry to Quay"
+msgstr "من المحجر إلى الميناء"
+
+msgid "From the historic quarries around Bethlehem, Al-Baron transforms raw Palestinian limestone and marble into precision-finished materials trusted on facades, floors and landmark interiors across the globe."
+msgstr "من المحاجر التاريخية حول بيت لحم، يحوّل البارون الحجر الجيري والرخام الفلسطيني الخام إلى موادّ مُتقنة التشطيب، موثوقة في الواجهات والأرضيات والتصاميم الداخلية البارزة حول العالم."
+
+msgid "From the historic quarries around Bethlehem, Al-Baron turns raw limestone and marble into precision-finished materials trusted on landmark projects worldwide."
+msgstr "من المحاجر التاريخية حول بيت لحم، يحوّل البارون الحجر الجيري والرخام الخام إلى موادّ مُتقنة التشطيب، موثوقة في المشاريع البارزة حول العالم."
+
+msgid "Full control from extraction to finishing and export packing ensures consistent color, thickness and quality across every order."
+msgstr "تحكُّمٌ كامل من الاستخراج إلى التشطيب والتغليف للتصدير يضمن لوناً وسماكة وجودة متناسقة في كل طلب."
+
+msgid "Full ownership of the process from extraction to export."
+msgstr "ملكيةٌ كاملة للعملية من الاستخراج إلى التصدير."
+
+msgid "Gallery"
+msgstr "المعرض"
+
+msgid "Gallery images will appear here once products are published."
+msgstr "ستظهر صور المعرض هنا بمجرد نشر المنتجات."
+
+msgid "Gang saws cut raw blocks into calibrated slabs with consistent thickness."
+msgstr "تقطع مناشير الإطار الكتل الخام إلى ألواح معايَرة بسماكة متناسقة."
+
+msgid "Generations of stone craft rooted in the quarries of Bethlehem."
+msgstr "أجيالٌ من حرفة الحجر متجذّرة في محاجر بيت لحم."
+
+msgid "Genuine Palestinian limestone and marble, quarried from the hills around Bethlehem — nothing imitated, nothing substituted."
+msgstr "حجرٌ جيري ورخامٌ فلسطيني أصيل، مُستخرَج من تلال بيت لحم — لا تقليد ولا بدائل."
+
+msgid "Get in Touch"
+msgstr "تواصل معنا"
+
+msgid "Get the Catalogue"
+msgstr "احصل على الكتالوج"
+
+msgid "Global"
+msgstr "عالمي"
+
+msgid "Global Delivery"
+msgstr "توصيلٌ عالمي"
+
+msgid "Global delivery"
+msgstr "توصيلٌ عالمي"
+
+msgid "Gulf (GCC)"
+msgstr "الخليج (دول مجلس التعاون)"
+
+msgid "Heritage"
+msgstr "إرث"
+
+msgid "Inspected before it ships"
+msgstr "مفحوصٌ قبل الشحن"
+
+msgid "Inspection records for colour, dimension and finish."
+msgstr "سجلّات فحص للّون والأبعاد والتشطيب."
+
+msgid "Large-format capability"
+msgstr "قدرةٌ على التنسيقات الكبيرة"
+
+msgid "Let’s Talk"
+msgstr "لنتحدّث"
+
+msgid "Let’s bring timeless stone to your next build."
+msgstr "لنُضف حجراً خالداً إلى بنائك القادم."
+
+msgid "Levant"
+msgstr "بلاد الشام"
+
+msgid "Location"
+msgstr "الموقع"
+
+msgid "Machinery & Capacity"
+msgstr "الآلات والطاقة الإنتاجية"
+
+msgid "Material"
+msgstr "المادة"
+
+msgid "Material specifications available on request."
+msgstr "المواصفات الفنية متوفّرة عند الطلب."
+
+msgid "Max slab length"
+msgstr "أقصى طول للّوح"
+
+msgid "Modern gang saws, bridge cutters and finishing lines enable a broad range of formats, from standard tiles to large slabs and cut-to-size architectural pieces."
+msgstr "مناشير إطار حديثة وآلات قص جسرية وخطوط تشطيب تتيح مجموعة واسعة من التنسيقات، من البلاط القياسي إلى الألواح الكبيرة والقطع المعمارية المقصوصة حسب المقاس."
+
+msgid "Modernised"
+msgstr "التحديث"
+
+msgid "Natural Palestinian stone"
+msgstr "حجرٌ فلسطيني طبيعي"
+
+msgid "Natural Stone & Marble"
+msgstr "حجرٌ ورخامٌ طبيعي"
+
+msgid "Naturally warm, golden and cream tones"
+msgstr "درجاتٌ دافئة طبيعية ذهبية وكريمية"
+
+msgid "News"
+msgstr "الأخبار"
+
+msgid "News & Updates"
+msgstr "الأخبار والمستجدات"
+
+msgid "Newsroom"
+msgstr "غرفة الأخبار"
+
+msgid "No news yet"
+msgstr "لا توجد أخبار بعد"
+
+msgid "No products match these filters"
+msgstr "لا توجد منتجات تطابق عوامل التصفية هذه"
+
+msgid "No projects yet"
+msgstr "لا توجد مشاريع بعد"
+
+msgid "North Africa"
+msgstr "شمال أفريقيا"
+
+msgid "North America"
+msgstr "أمريكا الشمالية"
+
+msgid "One accountable partner, every step of the way."
+msgstr "شريكٌ واحد مسؤول في كل خطوة."
+
+msgid "Our Capabilities"
+msgstr "إمكاناتنا"
+
+msgid "Our Journey"
+msgstr "رحلتنا"
+
+msgid "Our Story"
+msgstr "قصتنا"
+
+msgid "Our Values"
+msgstr "قيمنا"
+
+msgid "Our project case studies will appear here soon."
+msgstr "ستظهر دراسات حالة مشاريعنا هنا قريباً."
+
+msgid "Our vertically integrated operation — from extraction through cutting, finishing and export packing — gives buyers a single, accountable partner from quarry to quay."
+msgstr "عمليتنا المتكاملة رأسياً — من الاستخراج إلى القص والتشطيب والتغليف للتصدير — تمنح المشترين شريكاً واحداً مسؤولاً من المحجر إلى الميناء."
+
+msgid "Packaging & supply"
+msgstr "التغليف والتوريد"
+
+msgid "Packed to arrive perfectly"
+msgstr "مُغلَّفٌ ليصل بحالة مثالية"
+
+msgid "Packing and documentation prepared to export standards."
+msgstr "تغليفٌ ووثائق مُعدّة وفق معايير التصدير."
+
+msgid "Palestinian Stone"
+msgstr "الحجر الفلسطيني"
+
+msgid "Palestinian stone"
+msgstr "حجرٌ فلسطيني"
+
+msgid "Palestinian stone delivered to architects and developers across the world."
+msgstr "حجرٌ فلسطيني يُوصَّل إلى المعماريين والمطوّرين حول العالم."
+
+msgid "Palestinian stone, delivered to architects, developers and traders across the globe."
+msgstr "حجرٌ فلسطيني، يُوصَّل إلى المعماريين والمطوّرين والتجار حول العالم."
+
+msgid "Please check back soon for Al-Baron announcements and updates."
+msgstr "يُرجى العودة قريباً لمتابعة إعلانات ومستجدات البارون."
+
+msgid "Polished, honed, brushed, bush-hammered and split-face finishes applied to spec."
+msgstr "تشطيبات مصقولة ومجلوّة ومفرشاة ومطروقة ومشقوقة الوجه تُطبَّق حسب المواصفات."
+
+msgid "Precision"
+msgstr "الدقة"
+
+msgid "Premium Palestinian natural stone & marble from Bethlehem — quarried, crafted and delivered for export projects worldwide."
+msgstr "حجرٌ ورخامٌ فلسطيني طبيعي فاخر من بيت لحم — مُستخرَج ومُشكَّل ومُوصَّل لمشاريع التصدير حول العالم."
+
+msgid "Premium natural stone & marble — quarried, hand-finished and export-ready for architects, developers and stone traders worldwide."
+msgstr "حجرٌ ورخامٌ طبيعي فاخر — مُستخرَج ومُشطَّب يدوياً وجاهز للتصدير للمعماريين والمطوّرين وتجار الحجر حول العالم."
+
+msgid "Pricing based on material, finish, quantity and destination"
+msgstr "التسعير بناءً على المادة والتشطيب والكمية والوجهة"
+
+msgid "Primary"
+msgstr "الرئيسية"
+
+msgid "Processes and packing built for demanding international specifications."
+msgstr "عملياتٌ وتغليفٌ مصمَّمة للمواصفات الدولية الصارمة."
+
+msgid "Product code"
+msgstr "رمز المنتج"
+
+msgid "Product filters"
+msgstr "عوامل تصفية المنتجات"
+
+msgid "Production"
+msgstr "الإنتاج"
+
+msgid "Products"
+msgstr "المنتجات"
+
+msgid "Project"
+msgstr "مشروع"
+
+msgid "Projects"
+msgstr "المشاريع"
+
+msgid "QA inspected"
+msgstr "مفحوصٌ لضمان الجودة"
+
+msgid "Quality & Certifications"
+msgstr "الجودة والشهادات"
+
+msgid "Quality Assurance"
+msgstr "ضمان الجودة"
+
+msgid "Quality Inspection"
+msgstr "فحص الجودة"
+
+msgid "Quarry Selection"
+msgstr "انتقاء المحجر"
+
+msgid "Quarry to Quay"
+msgstr "من المحجر إلى الميناء"
+
+msgid "Quarry-to-Quay Control"
+msgstr "تحكُّمٌ من المحجر إلى الميناء"
+
+msgid "Read more"
+msgstr "اقرأ المزيد"
+
+msgid "Refine"
+msgstr "تنقية"
+
+msgid "Reliability"
+msgstr "الموثوقية"
+
+msgid "Remove filter"
+msgstr "إزالة عامل التصفية"
+
+msgid "Repeatable finishes"
+msgstr "تشطيباتٌ قابلة للتكرار"
+
+msgid "Request a Quote"
+msgstr "اطلب عرض سعر"
+
+msgid "Request samples, specifications and a quote."
+msgstr "اطلب عينات ومواصفات وعرض سعر."
+
+msgid "Reset all"
+msgstr "إعادة ضبط الكل"
+
+msgid "Rigorous selection, calibrated finishes and documented quality controls — ready for demanding international specifications."
+msgstr "انتقاءٌ صارم وتشطيباتٌ معايَرة وضوابط جودة موثَّقة — جاهزة للمواصفات الدولية الصارمة."
+
+msgid "Rooted in"
+msgstr "متجذّرٌ في"
+
+msgid "Samples and technical specifications on request"
+msgstr "العينات والمواصفات الفنية عند الطلب"
+
+msgid "Scroll"
+msgstr "مرّر"
+
+msgid "Secure crating and palletising to export standard for safe global delivery."
+msgstr "تغليفٌ وتحميلٌ آمن على المنصّات وفق معيار التصدير لتوصيل عالمي آمن."
+
+msgid "Secure crating and palletising to export standard, with experienced logistics for reliable international delivery across the Gulf, Europe and beyond."
+msgstr "تغليفٌ وتحميلٌ آمن على المنصّات وفق معيار التصدير، مع خدمات لوجستية متمرّسة لتوصيل دولي موثوق عبر الخليج وأوروبا وما بعدها."
+
+msgid "See Our Capabilities"
+msgstr "اطّلع على إمكاناتنا"
+
+msgid "Selection at the quarry, block sawing, calibration, surface finishing and quality inspection — each stage is controlled to hold colour, dimension and finish tolerances across large orders."
+msgstr "الانتقاء في المحجر، ونشر الكتل، والمعايرة، وتشطيب السطح، وفحص الجودة — تُضبط كل مرحلة للحفاظ على تفاوتات اللون والأبعاد والتشطيب في الطلبات الكبيرة."
+
+msgid "Send us your requirements"
+msgstr "أرسل لنا متطلباتك"
+
+msgid "Signature Selection"
+msgstr "التشكيلة المميّزة"
+
+msgid "Size"
+msgstr "المقاس"
+
+msgid "Social"
+msgstr "التواصل الاجتماعي"
+
+msgid "Social media"
+msgstr "وسائل التواصل الاجتماعي"
+
+msgid "Specify with Confidence"
+msgstr "حدِّد بثقة"
+
+msgid "Start Your Project"
+msgstr "ابدأ مشروعك"
+
+msgid "Stone"
+msgstr "الحجر"
+
+msgid "Stone & Marble Products"
+msgstr "منتجات الحجر والرخام"
+
+msgid "Stone craft"
+msgstr "حرفة الحجر"
+
+msgid "Stone finishing"
+msgstr "تشطيب الحجر"
+
+msgid "Stone used"
+msgstr "الحجر المستخدَم"
+
+msgid "Stone varieties"
+msgstr "أنواع الحجر"
+
+msgid "Surface Finishing"
+msgstr "تشطيب السطح"
+
+msgid "Surfaces, finishes and applications — a closer look at the character of Al-Baron natural stone."
+msgstr "أسطحٌ وتشطيباتٌ واستخدامات — نظرةٌ أقرب إلى طابع حجر البارون الطبيعي."
+
+msgid "Technical Data"
+msgstr "البيانات الفنية"
+
+msgid "Technical Data Sheets"
+msgstr "صحائف البيانات الفنية"
+
+msgid "Tell us about your project and our export team will respond with samples, specifications and pricing."
+msgstr "أخبرنا عن مشروعك وسيردّ فريق التصدير لدينا بالعينات والمواصفات والأسعار."
+
+msgid "Tell us about your project — material, finish and quantity — and our export team will respond with samples, specifications and pricing."
+msgstr "أخبرنا عن مشروعك — المادة والتشطيب والكمية — وسيردّ فريق التصدير لدينا بالعينات والمواصفات والأسعار."
+
+msgid "That control is what lets us promise consistency at scale: the same colour, the same calibration and the same finish, order after order."
+msgstr "هذا التحكُّم هو ما يتيح لنا ضمان التناسق على نطاق واسع: اللون نفسه، والمعايرة نفسها، والتشطيب نفسه، طلباً بعد طلب."
+
+msgid "The Collection"
+msgstr "المجموعة"
+
+msgid "The Enduring Beauty of"
+msgstr "الجمال الخالد لـ"
+
+msgid "The Process"
+msgstr "العملية"
+
+msgid "The inquiry form is being configured."
+msgstr "يجري إعداد نموذج الاستفسار."
+
+msgid "The limestone and marble of the Bethlehem hills has shaped the region’s architecture for centuries — warm, dense and enduring."
+msgstr "شكّل الحجر الجيري والرخام في تلال بيت لحم عمارة المنطقة لقرون — دافئ وكثيف وخالد."
+
+msgid "The more detail you share, the faster we can quote accurately."
+msgstr "كلما زادت التفاصيل التي تشاركها، أسرعنا في تقديم عرض سعر دقيق."
+
+msgid "Thickness"
+msgstr "السماكة"
+
+msgid "Tiles, slabs & cut-to-size"
+msgstr "بلاطٌ وألواحٌ وقطعٌ حسب المقاس"
+
+msgid "Toggle menu"
+msgstr "تبديل القائمة"
+
+msgid "Traditional craft combined with modern sawing, calibration and finishing."
+msgstr "حرفةٌ تقليدية ممزوجة بالنشر والمعايرة والتشطيب الحديث."
+
+msgid "Try adjusting or clearing your filters to see more of the collection."
+msgstr "حاول تعديل عوامل التصفية أو مسحها لرؤية المزيد من المجموعة."
+
+msgid "Two decades of stone craft, refined for export."
+msgstr "عقدان من حرفة الحجر، مصقولان للتصدير."
+
+msgid "Uses"
+msgstr "الاستخدامات"
+
+msgid "Vertically Integrated"
+msgstr "تكاملٌ رأسي"
+
+msgid "View All Products"
+msgstr "عرض جميع المنتجات"
+
+msgid "View details"
+msgstr "عرض التفاصيل"
+
+msgid "View project"
+msgstr "عرض المشروع"
+
+msgid "Visual Portfolio"
+msgstr "معرض الأعمال المرئي"
+
+msgid "What We Stand For"
+msgstr "ما نؤمن به"
+
+msgid "What you specify is what arrives — packed to export standard and delivered on schedule to projects worldwide."
+msgstr "ما تحدّده هو ما يصل — مُغلَّف وفق معيار التصدير ومُوصَّل في موعده إلى المشاريع حول العالم."
+
+msgid "WhatsApp"
+msgstr "واتساب"
+
+msgid "Where We Ship"
+msgstr "إلى أين نشحن"
+
+msgid "Who We Are"
+msgstr "من نحن"
+
+msgid "Why Al-Baron"
+msgstr "لماذا البارون"
+
+msgid "Why Bethlehem Stone"
+msgstr "لماذا حجر بيت لحم"
+
+msgid "Work With Us"
+msgstr "اعمل معنا"
+
+msgid "Year"
+msgstr "السنة"
+
+msgid "Years of craft"
+msgstr "سنوات من الحرفة"

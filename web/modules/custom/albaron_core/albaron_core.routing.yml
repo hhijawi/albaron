@@ -29,11 +29,35 @@ albaron_core.gallery:
   requirements:
     _access: 'TRUE'
 
+albaron_core.projects:
+  path: '/projects'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\ProjectsController::view'
+    _title: 'Projects'
+  requirements:
+    _access: 'TRUE'
+
+albaron_core.news:
+  path: '/news'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\NewsController::view'
+    _title: 'News'
+  requirements:
+    _access: 'TRUE'
+
 albaron_core.capabilities:
   path: '/capabilities'
   defaults:
     _controller: '\Drupal\albaron_core\Controller\CapabilitiesController::view'
     _title: 'Capabilities & Certifications'
+  requirements:
+    _access: 'TRUE'
+
+albaron_core.about:
+  path: '/company'
+  defaults:
+    _controller: '\Drupal\albaron_core\Controller\AboutController::view'
+    _title: 'Company'
   requirements:
     _access: 'TRUE'
 

@@ -97,7 +97,7 @@ $handler->setConfiguration([
   'status' => TRUE,
   'weight' => 0,
   'settings' => [
-    'to_mail' => 'info@albaron.ps',
+    'to_mail' => 'albaronstone@gmail.com',
     'from_mail' => '[site:mail]',
     'subject' => 'New export inquiry from [webform_submission:values:name]',
     'body' => "[webform_submission:values]",

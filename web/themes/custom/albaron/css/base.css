@@ -5,6 +5,8 @@
  */
 
 :root {
+  color-scheme: dark;
+  --on-gold: #14110a;
   /* Brand palette */
   --gold: #c9a24b;
   --gold-bright: #e6cd86;
@@ -26,8 +28,8 @@
   --line: rgba(255, 255, 255, 0.08);
 
   /* Typography */
-  --font-serif: 'Cormorant Garamond', 'Tajawal', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter', 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Cormorant Garamond', 'IBM Plex Sans Arabic', Georgia, 'Times New Roman', serif;
+  --font-sans: 'IBM Plex Sans', 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Spacing / rhythm */
   --container: 1240px;
@@ -44,6 +46,42 @@
   /* Elevation */
   --shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.75);
   --shadow-gold: 0 18px 50px -24px rgba(201, 162, 75, 0.5);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --gold: #806014;
+  --gold-bright: #71520e;
+  --gold-deep: #63460b;
+  --gold-soft: rgba(128, 96, 20, 0.09);
+  --gold-line: rgba(128, 96, 20, 0.3);
+  --on-gold: #fff;
+  --bg: #fafafa;
+  --bg-1: #f2f3f4;
+  --bg-2: #fff;
+  --bg-3: #e9ecee;
+  --bg-glass: rgba(255, 255, 255, 0.94);
+  --ink: #202427;
+  --ink-soft: #454c52;
+  --muted: #60676d;
+  --line: rgba(32, 36, 39, 0.16);
+  --shadow: 0 24px 60px -30px rgba(28, 35, 40, 0.22);
+  --shadow-gold: 0 18px 50px -24px rgba(128, 96, 20, 0.25);
+}
+
+:root[data-theme='light'] :is(.hero, .page-banner, .cap-hero, .lightbox, .card__media-overlay, .g-overlay) {
+  color-scheme: dark;
+  --gold: #c9a24b;
+  --gold-bright: #e6cd86;
+  --gold-deep: #a6812f;
+  --gold-soft: rgba(201, 162, 75, 0.14);
+  --gold-line: rgba(201, 162, 75, 0.3);
+  --on-gold: #14110a;
+  --bg: #0d0d0f;
+  --ink: #f4f1ea;
+  --ink-soft: #cfc9be;
+  --muted: #b8b2a7;
+  --line: rgba(255, 255, 255, 0.16);
 }
 
 /* ---- Reset ---- */
@@ -69,6 +107,35 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+  html,
+  body {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-wrap: anywhere;
+  }
+
+  .page {
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+
+  :is(.grid, .split, .products-layout, .product-hero, .site-footer__grid) > * {
+    min-inline-size: 0;
+  }
+
+  @supports (overflow: clip) {
+    html,
+    body {
+      overflow-x: clip;
+    }
+  }
 }
 
 /* Subtle stone-textured backdrop */
@@ -106,7 +173,9 @@ a:hover {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
   font-weight: 600;
   line-height: 1.12;
@@ -182,7 +251,7 @@ blockquote {
 /* Selection */
 ::selection {
   background: var(--gold);
-  color: #14110a;
+  color: var(--on-gold);
 }
 
 /* Focus visibility (a11y) */
@@ -193,17 +262,22 @@ blockquote {
 }
 
 /* Arabic / RTL typographic tuning */
+/* Redefine the font variables in the Arabic scope so every component
+   (menu, buttons, badges, cards, headings, inputs) uses IBM Plex Sans Arabic. */
 [dir='rtl'] body,
 html[lang='ar'] body {
-  font-family: 'Tajawal', var(--font-sans);
+  --font-sans: 'IBM Plex Sans Arabic', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'IBM Plex Sans Arabic', 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-sans);
   letter-spacing: 0;
 }
 
 [dir='rtl'] h1,
 [dir='rtl'] h2,
 [dir='rtl'] h3,
-[dir='rtl'] h4 {
-  font-family: 'Tajawal', var(--font-serif);
+[dir='rtl'] h4,
+[dir='rtl'] h5,
+[dir='rtl'] h6 {
   font-weight: 700;
   line-height: 1.3;
 }

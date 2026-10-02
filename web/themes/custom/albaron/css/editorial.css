@@ -1,0 +1,100 @@
+/* ============================================================
+   Al-Baron — News & Projects (editorial) styles
+   Builds on the shared .card / .grid system.
+   ============================================================ */
+
+/* News/project cards use a taller, editorial media ratio. */
+.news-node .article-figure,
+.project-node .product-gallery__main {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+/* Meta date / location line on listing cards. */
+.card__date {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.card__excerpt {
+  margin-block-start: 0.6rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-block-start: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.card__link:hover {
+  color: var(--gold-bright);
+}
+
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-block-start: 1rem;
+  padding-block-start: 0.9rem;
+  border-block-start: 1px solid var(--line);
+}
+
+/* ---- Article (news detail) ---- */
+.article-meta {
+  margin-block-start: 0.6rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.article-figure {
+  margin: 0 0 2rem;
+}
+
+.article-figure img {
+  inline-size: 100%;
+  block-size: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+.article-body {
+  margin-block-start: 1.5rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.article-body p {
+  margin-block-end: 1.2rem;
+}
+
+/* ---- Contact page split (collapses to one column on mobile) ---- */
+.contact-layout {
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: start;
+  gap: 3rem;
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}

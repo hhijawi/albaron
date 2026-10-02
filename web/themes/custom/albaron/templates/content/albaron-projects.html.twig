@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Al-Baron projects listing. Available: items (title, url, summary, location,
+ * year, stones, image).
+ */
+#}
+<section class="page-banner">
+  <div class="page-banner__media" aria-hidden="true">
+    <img src="{{ file_url(directory ~ '/projects-bg.webp') }}" alt="" width="1494" height="790" fetchpriority="high">
+  </div>
+  <div class="container container--wide">
+    <span class="eyebrow">{{ 'Project Examples'|t }}</span>
+    <h1>{{ 'Projects'|t }}</h1>
+    <p class="lead" style="max-width:56ch;">{{ 'Illustrative project concepts in Bethlehem, Ramallah, Hebron and Nablus, showing local uses of natural stone and marble.'|t }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container container--wide">
+    {% if items %}
+      <div class="grid grid--3">
+        {% for item in items %}
+          <article class="card" data-reveal data-reveal-delay="{{ loop.index0 % 3 }}">
+            <a href="{{ item.url }}" class="card__media">
+              {% if item.image %}<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" loading="lazy">{% endif %}
+              <span class="card__media-overlay"><span class="card__view">{{ 'View project'|t }} &rarr;</span></span>
+            </a>
+            <div class="card__body">
+              {% if item.location or item.year %}
+                <span class="card__date">{{ item.location }}{% if item.location and item.year %} &middot; {% endif %}{{ item.year }}</span>
+              {% endif %}
+              <h3 class="card__title" style="margin-top:.6rem;"><a href="{{ item.url }}">{{ item.title }}</a></h3>
+              {% if item.summary %}<p class="card__excerpt">{{ item.summary }}</p>{% endif %}
+              {% if item.stones %}
+                <div class="card__tags">
+                  {% for stone in item.stones %}<span class="badge">{{ stone }}</span>{% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="form-card" style="text-align:center;">
+        <h3>{{ 'No projects yet'|t }}</h3>
+        <p>{{ 'Our project case studies will appear here soon.'|t }}</p>
+      </div>
+    {% endif %}
+  </div>
+</section>

@@ -300,6 +300,44 @@
         // multi-selects never read a stale server-rendered link.
         let currentSearch = window.location.search;
         let reqId = 0;
+        // Mobile filter drawer state — persists across AJAX fragment swaps.
+        let filtersOpen = false;
+        const mobileFilters = window.matchMedia('(max-width: 900px)');
+        let scrollLocked = false;
+        let pageScrollTop = 0;
+
+        const syncFiltersOpen = () => {
+          const shouldLock = filtersOpen && mobileFilters.matches;
+          if (shouldLock !== scrollLocked) {
+            if (shouldLock) {
+              pageScrollTop = window.scrollY;
+              document.body.style.setProperty('--filter-scroll-top', `-${pageScrollTop}px`);
+            }
+            document.documentElement.classList.toggle('filters-scroll-locked', shouldLock);
+            scrollLocked = shouldLock;
+            if (!shouldLock) {
+              document.body.style.removeProperty('--filter-scroll-top');
+              window.scrollTo({ top: pageScrollTop, behavior: 'instant' });
+            }
+          }
+          app.classList.toggle('filters-open', filtersOpen);
+          const tgl = app.querySelector('.filters-toggle');
+          if (tgl) {
+            tgl.setAttribute('aria-expanded', filtersOpen ? 'true' : 'false');
+          }
+        };
+
+        const onFilterViewportChange = () => {
+          if (!mobileFilters.matches) {
+            filtersOpen = false;
+          }
+          syncFiltersOpen();
+        };
+        if (typeof mobileFilters.addEventListener === 'function') {
+          mobileFilters.addEventListener('change', onFilterViewportChange);
+        } else {
+          mobileFilters.addListener(onFilterViewportChange);
+        }
 
         const apply = (search, push) => {
           currentSearch = search;
@@ -317,13 +355,20 @@
               if (myReq !== reqId) {
                 return; // A newer request superseded this one.
               }
+              const filterScrollTop = app.querySelector('.filters')?.scrollTop || 0;
               app.innerHTML = html;
               app.classList.remove('is-loading');
+              syncFiltersOpen();
+              if (filtersOpen) {
+                app.querySelector('.filters').scrollTop = filterScrollTop;
+              }
               if (push) {
                 window.history.pushState({ albaron: true }, '', niceUrl);
               }
               Drupal.attachBehaviors(app);
-              if (window.innerWidth < 900) {
+              // Only scroll to results when the drawer is closed (desktop or
+              // after the user dismisses it) to avoid jumping while filtering.
+              if (!filtersOpen && window.innerWidth < 900) {
                 app.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             })
@@ -354,6 +399,20 @@
         };
 
         app.addEventListener('click', (e) => {
+          // Mobile filter drawer open/close.
+          if (e.target.closest('.filters-toggle')) {
+            e.preventDefault();
+            filtersOpen = true;
+            syncFiltersOpen();
+            return;
+          }
+          if (e.target.closest('.filters__close') || e.target.closest('.filters-backdrop')) {
+            e.preventDefault();
+            filtersOpen = false;
+            syncFiltersOpen();
+            return;
+          }
+
           const link = e.target.closest('a.js-filter');
           if (!link || !app.contains(link)) {
             return;
@@ -369,6 +428,14 @@
             search = new URL(link.href, window.location.origin).search;
           }
           apply(search, true);
+        });
+
+        // Close the drawer with Escape.
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && filtersOpen) {
+            filtersOpen = false;
+            syncFiltersOpen();
+          }
         });
 
         window.addEventListener('popstate', () => {

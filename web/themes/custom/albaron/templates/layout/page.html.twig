@@ -23,6 +23,10 @@
         </nav>
 
         <div class="header-actions">
+          <button type="button" class="theme-toggle" data-theme-toggle data-light-label="{{ 'Switch to light theme'|t }}" data-dark-label="{{ 'Switch to dark theme'|t }}" aria-label="{{ 'Switch to light theme'|t }}" hidden>
+            <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+            <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
+          </button>
           <div class="lang-switcher">{{ drupal_block('language_block:language_interface', wrapper=false) }}</div>
           <a href="{{ path('albaron_core.contact') }}" class="btn btn--primary btn--sm">{{ 'Request a Quote'|t }}</a>
           <button class="nav-toggle" aria-label="{{ 'Toggle menu'|t }}" aria-expanded="false">
@@ -76,7 +80,7 @@
             <a href="https://www.instagram.com/albaron.stone/" aria-label="Instagram" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="https://wa.me/972595554446" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <a href="https://wa.me/972566777776" aria-label="WhatsApp" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.3c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.1.3.7 1.1 1.4 1.8 1 .8 1.7 1.1 2 1.2.2.1.4.1.5-.1l.7-.8c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.2.5.3.1.2.1.7-.1 1.3z"/></svg>
             </a>
           </div>
@@ -90,9 +94,11 @@
         <div>
           <div class="footer-heading">{{ 'Contact'|t }}</div>
           <ul class="footer-menu">
-            <li>{{ 'Bethlehem, Palestine'|t }}</li>
-            <li><a href="https://wa.me/972595554446">+972 59&#8209;555&#8209;4446</a></li>
-            <li><a href="mailto:info@albaron.ps">info@albaron.ps</a></li>
+            <li>{{ 'Main Street, Marah Rabah, Bethlehem, Palestine'|t }}</li>
+            <li>{{ 'Phone'|t }}: <a href="tel:+970594499995" dir="ltr">+970 594 499 995</a></li>
+            <li>{{ 'WhatsApp'|t }}: <a href="https://wa.me/972566777776" dir="ltr">+972 56-677-7776</a></li>
+            <li><a href="mailto:albaronstone@gmail.com" dir="ltr">albaronstone@gmail.com</a></li>
+            <li><a href="https://albaronstone.com" dir="ltr">albaronstone.com</a></li>
             <li>@Albaron.stone</li>
           </ul>
         </div>

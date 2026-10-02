@@ -1,36 +1,67 @@
 {#
 /**
  * @file
- * Al-Baron contact page: company details + inquiry form.
+ * Al-Baron contact page — rich, image-led, animated. Available: form.
  */
 #}
-<section class="page-banner">
+<section class="cap-hero cap-hero--short">
+  <div class="cap-hero__media">
+    <img src="{{ file_url(directory ~ '/contact-bg.webp') }}" alt="" width="1480" height="840" aria-hidden="true" fetchpriority="high">
+  </div>
   <div class="container container--wide">
-    <span class="eyebrow">{{ 'Get in Touch'|t }}</span>
-    <h1>{{ 'Contact & Export Inquiries'|t }}</h1>
-    <p class="lead" style="max-width:56ch;">{{ 'Tell us about your project — material, finish and quantity — and our export team will respond with samples, specifications and pricing.'|t }}</p>
+    <div class="cap-hero__inner" data-reveal>
+      <span class="eyebrow">{{ 'Get in Touch'|t }}</span>
+      <h1>{{ 'Let’s Talk'|t }} <em>{{ 'Stone'|t }}</em></h1>
+      <p class="lead">{{ 'Tell us about your project — material, finish and quantity — and our export team will respond with samples, specifications and pricing.'|t }}</p>
+    </div>
   </div>
 </section>
 
-<section class="section">
+{# Quick contact methods #}
+<section class="section section--tight">
   <div class="container container--wide">
-    <div class="split" style="grid-template-columns:0.8fr 1.2fr;align-items:start;gap:3rem;">
+    <div class="contact-methods" data-reveal>
+      <a href="https://wa.me/972566777776" class="contact-method" target="_blank" rel="noopener">
+        <span class="contact-method__icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg></span>
+        <span class="contact-method__label">{{ 'WhatsApp'|t }}</span>
+        <span class="contact-method__value" dir="ltr">+972 56-677-7776</span>
+      </a>
+      <a href="mailto:albaronstone@gmail.com" class="contact-method">
+        <span class="contact-method__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+        <span class="contact-method__label">{{ 'Email'|t }}</span>
+        <span class="contact-method__value" dir="ltr">albaronstone@gmail.com</span>
+      </a>
+      <div class="contact-method">
+        <span class="contact-method__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <span class="contact-method__label">{{ 'Location'|t }}</span>
+        <span class="contact-method__value">{{ 'Main Street, Marah Rabah, Bethlehem, Palestine'|t }}</span>
+      </div>
+      <a href="tel:+970594499995" class="contact-method">
+        <span class="contact-method__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.35 1.9.69 2.79a2 2 0 0 1-.45 2.11L8.09 9.89a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.89.34 1.83.57 2.79.69A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="contact-method__label">{{ 'Phone'|t }}</span>
+        <span class="contact-method__value" dir="ltr">+970 594 499 995</span>
+      </a>
+    </div>
+  </div>
+</section>
 
+{# Inquiry form + what to expect #}
+<section class="section section--panel">
+  <div class="container container--wide">
+    <div class="split contact-layout">
       <div data-reveal>
-        <h3>{{ 'Al-Baron Co.'|t }}</h3>
-        <p>{{ 'Natural Stone & Marble — Bethlehem, Palestine.'|t }}</p>
-
-        <table class="spec-table">
-          <tr><th>{{ 'Location'|t }}</th><td>{{ 'Bethlehem, Palestine'|t }}</td></tr>
-          <tr><th>{{ 'WhatsApp'|t }}</th><td><a href="https://wa.me/972595554446">+972 59&#8209;555&#8209;4446</a></td></tr>
-          <tr><th>{{ 'Email'|t }}</th><td><a href="mailto:info@albaron.ps">info@albaron.ps</a></td></tr>
-          <tr><th>{{ 'Social'|t }}</th><td>@Albaron.stone</td></tr>
-        </table>
-
-        <div class="social" style="margin-top:1.5rem;">
+        <span class="eyebrow">{{ 'Export Inquiries'|t }}</span>
+        <h2>{{ 'Send us your requirements'|t }}</h2>
+        <p class="lead">{{ 'The more detail you share, the faster we can quote accurately.'|t }}</p>
+        <ul class="ticklist">
+          <li>{{ 'A reply from our export team, typically within one business day'|t }}</li>
+          <li>{{ 'Samples and technical specifications on request'|t }}</li>
+          <li>{{ 'Pricing based on material, finish, quantity and destination'|t }}</li>
+        </ul>
+        <div class="social" style="margin-top:1.8rem;">
           <a href="https://www.facebook.com/ALBARONCOM/" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9c0-.6.4-1 1-1z"/></svg></a>
           <a href="https://www.instagram.com/albaron.stone/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://wa.me/972595554446" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg></a>
+          <a href="https://wa.me/972566777776" aria-label="WhatsApp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg></a>
         </div>
       </div>
 
@@ -41,7 +72,20 @@
           <p>{{ 'The inquiry form is being configured.'|t }}</p>
         {% endif %}
       </div>
-
     </div>
   </div>
 </section>
+
+{# Map #}
+<section class="section">
+  <div class="container container--wide">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">{{ 'Find Us'|t }}</span>
+      <h2>{{ 'Main Street, Marah Rabah, Bethlehem, Palestine'|t }}</h2>
+    </div>
+    <div class="contact-map" data-reveal>
+      <iframe title="{{ 'Al-Baron location'|t }}" src="https://www.google.com/maps?q={{ 'Main Street, Marah Rabah, Bethlehem, Palestine'|url_encode }}&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+

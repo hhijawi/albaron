@@ -1,0 +1,150 @@
+{#
+/**
+ * @file
+ * Al-Baron — About (rich, image-led, animated).
+ * Available: images, values, markets, stats, milestones.
+ */
+#}
+<section class="cap-hero">
+  <div class="cap-hero__media" aria-hidden="true">
+    <img src="{{ file_url(directory ~ '/company-bg.webp') }}" alt="" width="1486" height="760" fetchpriority="high">
+  </div>
+  <div class="container container--wide">
+    <div class="cap-hero__inner" data-reveal>
+      <span class="eyebrow">{{ 'Our Story'|t }}</span>
+      <h1>{{ 'Rooted in'|t }} <em>{{ 'Palestinian Stone'|t }}</em></h1>
+      <p class="lead">{{ 'From the historic quarries around Bethlehem, Al-Baron turns raw limestone and marble into precision-finished materials trusted on landmark projects worldwide.'|t }}</p>
+    </div>
+  </div>
+</section>
+
+{# Story #}
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">{{ 'Who We Are'|t }}</span>
+        <h2>{{ 'Two decades of stone craft, refined for export.'|t }}</h2>
+        <p class="lead">{{ 'For over twenty years we have combined traditional Palestinian stone craft with modern processing to deliver consistent colour, calibrated thickness and reliable export quality.'|t }}</p>
+        <p>{{ 'Our vertically integrated operation — from extraction through cutting, finishing and export packing — gives buyers a single, accountable partner from quarry to quay.'|t }}</p>
+        <a href="{{ path('albaron_core.capabilities') }}" class="btn btn--ghost">{{ 'See Our Capabilities'|t }}</a>
+      </div>
+      <div class="cap-feature__img" data-reveal data-reveal-delay="1">
+        {% if images.story %}<img src="{{ images.story }}" alt="{{ 'Stone craft'|t }}" loading="lazy">{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Stats #}
+<section class="section section--tight section--panel">
+  <div class="container container--wide">
+    <div class="stats" data-reveal>
+      {% for s in stats %}
+        <div class="stat">
+          <div class="stat__num">{{ s.num }}{{ s.suffix }}</div>
+          <div class="stat__label">{{ s.label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# Values #}
+<section class="section">
+  <div class="container container--wide">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">{{ 'What We Stand For'|t }}</span>
+      <h2>{{ 'Our Values'|t }}</h2>
+    </div>
+    <div class="grid grid--3">
+      {% for v in values %}
+        <div class="feature-card" data-reveal data-reveal-delay="{{ loop.index0 % 3 }}">
+          <div class="feature-card__icon">
+            {% if v.icon == 'gem' %}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12l4 6-10 12L2 9l4-6Z"/><path d="M2 9h20M12 3 8 9l4 12 4-12-4-6Z"/></svg>
+            {% elseif v.icon == 'target' %}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
+            {% else %}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+            {% endif %}
+          </div>
+          <h3>{{ v.title }}</h3>
+          <p>{{ v.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# Heritage #}
+<section class="section section--panel">
+  <div class="container">
+    <div class="split split--reverse">
+      <div data-reveal>
+        <span class="eyebrow">{{ 'Why Bethlehem Stone'|t }}</span>
+        <h2>{{ 'A material with centuries of character.'|t }}</h2>
+        <p class="lead">{{ 'The limestone and marble of the Bethlehem hills has shaped the region’s architecture for centuries — warm, dense and enduring.'|t }}</p>
+        <ul class="ticklist">
+          <li>{{ 'Naturally warm, golden and cream tones'|t }}</li>
+          <li>{{ 'Dense and weather-resistant'|t }}</li>
+          <li>{{ 'Authentic Palestinian origin'|t }}</li>
+        </ul>
+      </div>
+      <div class="cap-feature__img" data-reveal data-reveal-delay="1">
+        {% if images.heritage %}<img src="{{ images.heritage }}" alt="{{ 'Bethlehem stone'|t }}" loading="lazy">{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# Journey / milestones #}
+<section class="section">
+  <div class="container container--wide">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">{{ 'Our Journey'|t }}</span>
+      <h2>{{ 'From Local Craft to Global Supply'|t }}</h2>
+    </div>
+    <div class="process">
+      {% for m in milestones %}
+        <div class="process__step" data-reveal data-reveal-delay="{{ loop.index0 % 3 }}">
+          <h3 class="process__title">{{ m.year }}</h3>
+          <p>{{ m.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# Export markets #}
+<section class="section section--panel">
+  <div class="container container--wide">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">{{ 'Where We Ship'|t }}</span>
+      <h2>{{ 'Export Markets'|t }}</h2>
+      <p class="lead" style="margin-inline:auto;">{{ 'Palestinian stone, delivered to architects, developers and traders across the globe.'|t }}</p>
+    </div>
+    <div class="markets" data-reveal>
+      {% for m in markets %}
+        <div class="market-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg>
+          <span>{{ m }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# CTA #}
+<section class="section">
+  <div class="container">
+    <div class="cta-band" data-reveal>
+      <span class="eyebrow" style="justify-content:center;">{{ 'Work With Us'|t }}</span>
+      <h2 style="max-width:22ch;margin-inline:auto;">{{ 'Bring authentic Palestinian stone to your project.'|t }}</h2>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem;">
+        <a href="{{ path('albaron_core.contact') }}" class="btn btn--primary">{{ 'Request a Quote'|t }}</a>
+        <a href="{{ path('albaron_core.products') }}" class="btn btn--ghost">{{ 'Explore Products'|t }}</a>
+      </div>
+    </div>
+  </div>
+</section>

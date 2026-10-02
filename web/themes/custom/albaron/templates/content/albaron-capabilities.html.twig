@@ -6,8 +6,8 @@
  */
 #}
 <section class="cap-hero">
-  <div class="cap-hero__media">
-    {% if images.hero %}<img src="{{ images.hero }}" alt="{{ 'Al-Baron stone production'|t }}" fetchpriority="high">{% endif %}
+  <div class="cap-hero__media" aria-hidden="true">
+    <img src="{{ file_url(directory ~ '/capabilities-bg.webp') }}" alt="" width="1490" height="796" fetchpriority="high">
   </div>
   <div class="container container--wide">
     <div class="cap-hero__inner" data-reveal>

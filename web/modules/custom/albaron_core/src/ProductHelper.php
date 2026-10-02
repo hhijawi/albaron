@@ -57,8 +57,9 @@ class ProductHelper {
     if ($node->hasField($field)) {
       $list = $node->get($field);
       if ($list instanceof EntityReferenceFieldItemListInterface) {
+        $repository = \Drupal::service('entity.repository');
         foreach ($list->referencedEntities() as $term) {
-          $out[] = $term->label();
+          $out[] = $repository->getTranslationFromContext($term)->label();
         }
       }
     }
@@ -97,6 +98,27 @@ class ProductHelper {
       ];
     }
     return $urls;
+  }
+
+  /**
+   * Get referenced nodes as [['title' => ..., 'url' => ...]].
+   */
+  public static function linkedNodes(NodeInterface $node, string $field): array {
+    $out = [];
+    if ($node->hasField($field)) {
+      $list = $node->get($field);
+      if ($list instanceof EntityReferenceFieldItemListInterface) {
+        $repository = \Drupal::service('entity.repository');
+        foreach ($list->referencedEntities() as $entity) {
+          $entity = $repository->getTranslationFromContext($entity);
+          $out[] = [
+            'title' => $entity->label(),
+            'url' => $entity->toUrl()->toString(),
+          ];
+        }
+      }
+    }
+    return $out;
   }
 
   /**

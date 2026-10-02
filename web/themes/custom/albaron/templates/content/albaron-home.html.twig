@@ -6,13 +6,11 @@
  * Available: featured, families, gallery, stats.
  */
 #}
-<section class="hero">
-  <div class="hero__media">
-    {% if gallery.0 %}
-      <img src="{{ gallery.0.large }}" alt="{{ 'Al-Baron natural stone'|t }}" fetchpriority="high">
-    {% endif %}
+<section class="hero{{ latest_news ? ' hero--with-news' : '' }}">
+  <div class="hero__media" aria-hidden="true">
+    <img src="{{ base_path ~ directory }}/home-hero.webp" alt="" width="1528" height="888" fetchpriority="high">
   </div>
-  <div class="container container--wide">
+  <div class="container container--wide hero__layout">
     <div class="hero__inner">
       <span class="eyebrow">{{ 'Bethlehem · Palestine · Since 1998'|t }}</span>
       <h1>{{ 'The Enduring Beauty of'|t }} <em>{{ 'Palestinian Stone'|t }}</em></h1>
@@ -22,8 +20,23 @@
         <a href="{{ path('albaron_core.contact') }}" class="btn btn--ghost">{{ 'Request a Quote'|t }}</a>
       </div>
     </div>
+    {% if latest_news %}
+      <aside class="hero-news" aria-label="{{ 'Latest News'|t }}">
+        <span class="hero-news__label">{{ 'Latest News'|t }}</span>
+        <a class="hero-news__story" href="{{ latest_news.url }}">
+          {% if latest_news.image %}
+            <img class="hero-news__image" src="{{ latest_news.image.src }}" alt="" width="112" height="80" decoding="async">
+          {% endif %}
+          <div class="hero-news__text">
+            <time datetime="{{ latest_news.datetime }}">{{ latest_news.date }}</time>
+            <h2>{{ latest_news.title }}</h2>
+          </div>
+        </a>
+        <a class="hero-news__all" href="{{ path('albaron_core.news') }}">{{ 'All News'|t }} <span aria-hidden="true">&rarr;</span></a>
+      </aside>
+    {% endif %}
   </div>
-  <div class="hero__scroll">{{ 'Scroll'|t }}</div>
+  {% if not latest_news %}<div class="hero__scroll">{{ 'Scroll'|t }}</div>{% endif %}
 </section>
 
 {# Trust / stats #}
@@ -49,7 +62,7 @@
         <h2>{{ 'A heritage of stone, refined for the world’s finest projects.'|t }}</h2>
         <p class="lead">{{ 'From the historic quarries around Bethlehem, Al-Baron transforms raw Palestinian limestone and marble into precision-finished materials trusted on facades, floors and landmark interiors across the globe.'|t }}</p>
         <p>{{ 'Every block is selected for character and consistency, then cut, finished and packed to exacting export standards — so what you specify is exactly what arrives on site.'|t }}</p>
-        <a href="/about" class="btn btn--ghost">{{ 'Our Story'|t }}</a>
+        <a href="{{ path('albaron_core.about') }}" class="btn btn--ghost">{{ 'Our Story'|t }}</a>
       </div>
       <div class="grid grid--2" data-reveal data-reveal-delay="1">
         {% for img in gallery|slice(1, 4) %}

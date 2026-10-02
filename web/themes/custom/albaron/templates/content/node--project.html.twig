@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Al-Baron — project case-study detail. Uses the `albaron` variable
+ * (summary, location, year, stones, images) plus `content` for the body.
+ */
+#}
+<article{{ attributes.addClass('project-node') }}>
+
+  <section class="section">
+    <div class="container container--wide">
+      <div class="product-hero">
+
+        {# Gallery #}
+        <div class="product-gallery" data-reveal>
+          <div class="product-gallery__main">
+            {% if albaron.images.0 %}
+              <img src="{{ albaron.images.0.large }}" data-large="{{ albaron.images.0.large }}" alt="{{ albaron.images.0.alt }}" fetchpriority="high">
+            {% endif %}
+          </div>
+          {% if albaron.images|length > 1 %}
+            <div class="product-gallery__thumbs">
+              {% for img in albaron.images %}
+                <img src="{{ img.src }}" data-large="{{ img.large }}" alt="{{ img.alt }}" loading="lazy">
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+
+        {# Details #}
+        <div class="product-detail" data-reveal data-reveal-delay="1">
+          <span class="badge">{{ 'Project'|t }}</span>
+          <h1 style="margin-top:1rem;">{{ label }}</h1>
+          {% if albaron.summary %}<p class="lead" style="margin-top:1.2rem;">{{ albaron.summary }}</p>{% endif %}
+
+          <table class="spec-table">
+            {% if albaron.location %}<tr><th>{{ 'Location'|t }}</th><td>{{ albaron.location }}</td></tr>{% endif %}
+            {% if albaron.year %}<tr><th>{{ 'Year'|t }}</th><td>{{ albaron.year }}</td></tr>{% endif %}
+            {% if albaron.stones %}
+              <tr>
+                <th>{{ 'Stone used'|t }}</th>
+                <td>
+                  {% for stone in albaron.stones %}<a href="{{ stone.url }}">{{ stone.title }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+                </td>
+              </tr>
+            {% endif %}
+          </table>
+
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+            <a href="{{ path('albaron_core.contact') }}" class="btn btn--primary">{{ 'Start Your Project'|t }}</a>
+            <a href="{{ path('albaron_core.projects') }}" class="btn btn--ghost">&larr; {{ 'All Projects'|t }}</a>
+          </div>
+        </div>
+
+      </div>
+
+      {# Case-study body #}
+      {% if content.body|render|striptags|trim %}
+        <div class="container--narrow" style="margin-top:3.5rem;margin-inline:0;" data-reveal>
+          {{ content.body }}
+        </div>
+      {% endif %}
+    </div>
+  </section>
+
+</article>

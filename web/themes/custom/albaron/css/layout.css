@@ -140,6 +140,44 @@ main {
   min-block-size: 84px;
 }
 
+/* Mobile header: drop the header CTA (still in hero + Contact nav) and tighten
+   spacing so logo + language switcher + hamburger always fit. */
+@media (max-width: 1200px) {
+  .site-header__inner {
+    gap: 0.85rem;
+  }
+
+  .header-actions {
+    gap: 0.6rem;
+  }
+
+  .site-header .header-actions {
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 1400px) {
+  .header-actions > .btn {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-branding__tag {
+    display: none;
+  }
+
+  .site-branding__name {
+    font-size: 1.3rem;
+  }
+
+  .site-branding__logo img,
+  .site-branding__logo svg {
+    block-size: 44px;
+  }
+}
+
 .site-branding {
   display: inline-flex;
   align-items: center;
@@ -176,9 +214,39 @@ main {
   margin-block-start: 3px;
 }
 
+@media (max-width: 420px) {
+  .site-header__inner {
+    gap: 0.5rem;
+  }
+
+  .site-header .site-branding {
+    gap: 0.4rem;
+  }
+
+  .site-header .site-branding__tag {
+    display: none;
+  }
+
+  .site-header .site-branding__name {
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+
+  .site-header .site-branding__logo img {
+    block-size: 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header .site-branding__name {
+    display: none;
+  }
+}
+
 /* ---- Footer ---- */
 .site-footer {
-  background: linear-gradient(180deg, var(--bg-1), #0a0a0c);
+  background: linear-gradient(180deg, var(--bg-1), var(--bg));
   border-block-start: 1px solid var(--gold-line);
   margin-block-start: auto;
 }
@@ -261,4 +329,23 @@ main {
 .site-footer .primary-nav__menu a:hover {
   color: var(--gold);
   padding-inline-start: 6px;
+}
+
+/* On mobile the footer menu becomes a tidy two-column grid (not full-width
+   bordered rows inherited from the mobile nav drawer). */
+@media (max-width: 560px) {
+  .site-footer .primary-nav__menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem 1.5rem;
+  }
+
+  .site-footer .primary-nav__menu li {
+    border-block-end: 0;
+  }
+
+  .site-footer .primary-nav__menu a {
+    display: inline-block;
+    padding-block: 0;
+  }
 }

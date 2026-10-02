@@ -43,29 +43,13 @@ foreach ($blocks as $id => $def) {
 
 // ---------------------------------------------------------------------------
 // 3. Static pages.
+//
+// About and Capabilities are now rendered by custom controllers
+// (AboutController / CapabilitiesController at /company and /capabilities), not
+// Basic page nodes — so no page nodes are created here. Leaving this map empty
+// keeps the script idempotent without resurrecting deleted duplicate nodes.
 // ---------------------------------------------------------------------------
-$pages = [
-  'about' => [
-    'title' => 'About Al-Baron',
-    'alias' => '/about',
-    'body' => '<p class="lead">From the historic quarries around Bethlehem, Al-Baron transforms raw Palestinian limestone and marble into precision-finished materials trusted on projects across the world.</p>'
-      . '<p>For over two decades we have combined traditional stone craft with modern processing to deliver consistent color, calibrated thickness and reliable export quality. Our vertically integrated operation — from extraction through cutting, finishing and export packing — gives buyers a single, accountable partner.</p>'
-      . '<h3>Our Values</h3><p>Authenticity of Palestinian stone, precision in every finish, and dependable delivery. We publish only verified capabilities and specifications, so what you specify is exactly what arrives on site.</p>'
-      . '<h3>Export Markets</h3><p>Al-Baron serves architects, developers and stone traders across the Gulf, Europe and beyond, supporting facades, flooring, cladding and bespoke architectural elements.</p>',
-  ],
-  'capabilities' => [
-    'title' => 'Capabilities & Certifications',
-    'alias' => '/capabilities',
-    'body' => '<p class="lead">A vertically integrated stone operation built for demanding international specifications.</p>'
-      . '<h3>Production Workflow</h3><p>Selection at the quarry, block sawing, calibration, surface finishing and quality inspection — each stage is controlled to hold color, dimension and finish tolerances across large orders.</p>'
-      . '<h3>Machinery & Capacity</h3><p>Modern gang saws, bridge cutters and finishing lines enable a broad range of formats, from standard tiles to large slabs and cut-to-size architectural pieces.</p>'
-      . '<h3>Quality Assurance</h3><p>Documented inspection of color consistency, dimensional accuracy and surface finish before packing. Custom finishes and sizes available on request.</p>'
-      . '<h3>Packing & Export Readiness</h3><p>Secure crating and palletizing to export standard, with experienced logistics for reliable international delivery.</p>'
-      . '<h3>Certifications</h3><p>Certificates and technical documentation are provided on request and published here once verified.</p>',
-  ],
-];
-
-foreach ($pages as $key => $def) {
+$pages = [];
   $existing = \Drupal::entityTypeManager()->getStorage('node')
     ->loadByProperties(['type' => 'page', 'title' => $def['title']]);
   if ($existing) {
@@ -89,10 +73,12 @@ foreach ($pages as $key => $def) {
 // ---------------------------------------------------------------------------
 $links = [
   ['title' => 'Home', 'uri' => 'internal:/home', 'weight' => -50],
+  ['title' => 'News', 'uri' => 'internal:/news', 'weight' => -45],
   ['title' => 'Products', 'uri' => 'internal:/products', 'weight' => -40],
   ['title' => 'Gallery', 'uri' => 'internal:/gallery', 'weight' => -30],
+  ['title' => 'Projects', 'uri' => 'internal:/projects', 'weight' => -25],
   ['title' => 'Capabilities', 'uri' => 'internal:/capabilities', 'weight' => -20],
-  ['title' => 'About', 'uri' => 'internal:/about', 'weight' => -10],
+  ['title' => 'Company', 'uri' => 'internal:/company', 'weight' => -10],
   ['title' => 'Contact', 'uri' => 'internal:/contact', 'weight' => 0],
 ];
 foreach ($links as $def) {
