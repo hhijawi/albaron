@@ -98,12 +98,55 @@ class HomeController extends ControllerBase {
     }
     $gallery = array_slice($gallery, 0, 8);
 
+    $applications = [];
+    foreach (ProductHelper::vocabularyOptions('application') as $tid => $name) {
+      $applications[] = [
+        'name' => $name,
+        'url' => ProductHelper::filterUrl('application', $tid, []),
+      ];
+    }
+
+    $projects = [];
+    $project_ids = $storage->getQuery()
+      ->accessCheck(TRUE)
+      ->condition('type', 'project')
+      ->condition('status', 1)
+      ->sort('created', 'DESC')
+      ->sort('nid', 'DESC')
+      ->range(0, 3)
+      ->execute();
+    foreach ($storage->loadMultiple($project_ids) as $project) {
+      $project = \Drupal::service('entity.repository')->getTranslationFromContext($project, $lang);
+      $access = $project->access('view', NULL, TRUE);
+      $cache->addCacheableDependency($project);
+      $cache->addCacheableDependency($access);
+      if (!$project->isPublished() || !$access->isAllowed()) {
+        continue;
+      }
+      $url = $project->toUrl()->toString(TRUE);
+      $cache->addCacheableDependency($url);
+      $projects[] = [
+        'title' => $project->label(),
+        'url' => $url->getGeneratedUrl(),
+        'summary' => ProductHelper::scalar($project, 'field_summary'),
+        'image' => ProductHelper::images($project, 'product_card')[0] ?? NULL,
+      ];
+      foreach ($project->get('field_images')->referencedEntities() as $media) {
+        $cache->addCacheableDependency($media);
+        if ($media->hasField('field_media_image') && $media->get('field_media_image')->entity) {
+          $cache->addCacheableDependency($media->get('field_media_image')->entity);
+        }
+      }
+    }
+
     $build = [
       '#theme' => 'albaron_home',
       '#featured' => $featured,
       '#families' => $families,
       '#gallery' => $gallery,
       '#latest_news' => $latest_news,
+      '#applications' => $applications,
+      '#projects' => $projects,
       '#stats' => [
         ['num' => '25+', 'label' => $this->t('Years of craft')],
         ['num' => '40+', 'label' => $this->t('Stone varieties')],
@@ -113,7 +156,7 @@ class HomeController extends ControllerBase {
     ];
 
     $cache->addCacheContexts(['languages:language_content', 'user.node_grants:view', 'user.permissions', 'timezone']);
-    $cache->addCacheTags(['node_list:product', 'node_list:news', 'config:image.style.product_card']);
+    $cache->addCacheTags(['node_list:product', 'node_list:news', 'node_list:project', 'taxonomy_term_list', 'config:image.style.product_card']);
     $cache->applyTo($build);
 
     return $build;

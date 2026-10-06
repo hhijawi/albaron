@@ -63,6 +63,8 @@ function albaron_core_theme($existing, $type, $theme, $path): array {
         'gallery' => [],
         'stats' => [],
         'latest_news' => NULL,
+        'applications' => [],
+        'projects' => [],
       ],
     ],
     'albaron_products' => [

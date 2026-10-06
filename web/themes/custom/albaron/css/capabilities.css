@@ -315,3 +315,7 @@ a.contact-method:hover {
   border: 0;
   filter: grayscale(0.4) contrast(1.05) invert(0.92) hue-rotate(180deg);
 }
+
+.contact-map__actions {
+  margin-block: 1.5rem 0;
+}

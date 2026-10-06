@@ -6,83 +6,45 @@
  * Available: featured, families, gallery, stats.
  */
 #}
-<section class="hero{{ latest_news ? ' hero--with-news' : '' }}">
+<section class="hero hero--showcase" data-hero-gallery aria-label="{{ 'Gallery'|t }}">
   <div class="hero__media" aria-hidden="true">
-    <img src="{{ base_path ~ directory }}/home-hero.webp" alt="" width="1528" height="888" fetchpriority="high">
+    <img class="hero__slide is-active" src="{{ file_url(directory ~ '/home-hero.webp') }}" alt="" width="1528" height="888" fetchpriority="high">
+    <img class="hero__slide" src="{{ file_url(directory ~ '/company-bg.webp') }}" alt="" width="1486" height="760" decoding="async">
+    <img class="hero__slide" src="{{ file_url(directory ~ '/capabilities-bg.webp') }}" alt="" width="1490" height="796" decoding="async">
   </div>
   <div class="container container--wide hero__layout">
     <div class="hero__inner">
       <span class="eyebrow">{{ 'Bethlehem · Palestine · Since 1998'|t }}</span>
-      <h1>{{ 'The Enduring Beauty of'|t }} <em>{{ 'Palestinian Stone'|t }}</em></h1>
-      <p class="lead">{{ 'Premium natural stone & marble — quarried, hand-finished and export-ready for architects, developers and stone traders worldwide.'|t }}</p>
-      <div class="hero__cta">
-        <a href="{{ path('albaron_core.products') }}" class="btn btn--primary">{{ 'Explore the Collection'|t }}</a>
-        <a href="{{ path('albaron_core.contact') }}" class="btn btn--ghost">{{ 'Request a Quote'|t }}</a>
-      </div>
-    </div>
-    {% if latest_news %}
-      <aside class="hero-news" aria-label="{{ 'Latest News'|t }}">
-        <span class="hero-news__label">{{ 'Latest News'|t }}</span>
-        <a class="hero-news__story" href="{{ latest_news.url }}">
-          {% if latest_news.image %}
-            <img class="hero-news__image" src="{{ latest_news.image.src }}" alt="" width="112" height="80" decoding="async">
-          {% endif %}
-          <div class="hero-news__text">
-            <time datetime="{{ latest_news.datetime }}">{{ latest_news.date }}</time>
-            <h2>{{ latest_news.title }}</h2>
-          </div>
-        </a>
-        <a class="hero-news__all" href="{{ path('albaron_core.news') }}">{{ 'All News'|t }} <span aria-hidden="true">&rarr;</span></a>
-      </aside>
-    {% endif %}
-  </div>
-  {% if not latest_news %}<div class="hero__scroll">{{ 'Scroll'|t }}</div>{% endif %}
-</section>
-
-{# Trust / stats #}
-<section class="section section--tight section--panel">
-  <div class="container container--wide">
-    <div class="stats">
-      {% for stat in stats %}
-        <div class="stat">
-          <div class="stat__num">{{ stat.num }}</div>
-          <div class="stat__label">{{ stat.label }}</div>
-        </div>
-      {% endfor %}
+      <h1>{{ 'Al-Baron'|t }}</h1>
+      <p class="hero__subtitle">{{ 'The Enduring Beauty of'|t }} {{ 'Palestinian Stone'|t }}</p>
+      <a class="hero__collection" href="{{ path('albaron_core.products') }}">{{ 'Explore the Collection'|t }} <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
-</section>
-
-{# Intro #}
-<section class="section">
-  <div class="container">
-    <div class="split">
-      <div data-reveal>
-        <span class="eyebrow">{{ 'Who We Are'|t }}</span>
-        <h2>{{ 'A heritage of stone, refined for the world’s finest projects.'|t }}</h2>
-        <p class="lead">{{ 'From the historic quarries around Bethlehem, Al-Baron transforms raw Palestinian limestone and marble into precision-finished materials trusted on facades, floors and landmark interiors across the globe.'|t }}</p>
-        <p>{{ 'Every block is selected for character and consistency, then cut, finished and packed to exacting export standards — so what you specify is exactly what arrives on site.'|t }}</p>
-        <a href="{{ path('albaron_core.about') }}" class="btn btn--ghost">{{ 'Our Story'|t }}</a>
-      </div>
-      <div class="grid grid--2" data-reveal data-reveal-delay="1">
-        {% for img in gallery|slice(1, 4) %}
-          <div class="card" data-lightbox><div class="card__media"><img src="{{ img.src }}" data-large="{{ img.large }}" alt="{{ img.alt }}" loading="lazy"></div></div>
-        {% endfor %}
-      </div>
-    </div>
+  <div class="hero__controls" hidden>
+    <button type="button" data-hero-prev aria-label="{{ 'Previous image'|t }}" title="{{ 'Previous image'|t }}"><span aria-hidden="true">&larr;</span></button>
+    <span class="hero__counter" dir="ltr" aria-live="off">01 / 03</span>
+    <button type="button" data-hero-next aria-label="{{ 'Next image'|t }}" title="{{ 'Next image'|t }}"><span aria-hidden="true">&rarr;</span></button>
+    <button type="button" data-hero-pause data-pause-label="{{ 'Pause slideshow'|t }}" data-play-label="{{ 'Play slideshow'|t }}" aria-label="{{ 'Pause slideshow'|t }}" title="{{ 'Pause slideshow'|t }}"><span aria-hidden="true">&#10074;&#10074;</span></button>
   </div>
 </section>
 
 {# Featured products #}
 {% if featured %}
-<section class="section section--panel">
+<section class="section home-collection">
   <div class="container container--wide">
     <div class="section-head section-head--center" data-reveal>
       <span class="eyebrow">{{ 'Signature Selection'|t }}</span>
       <h2>{{ 'Featured Stone & Marble'|t }}</h2>
     </div>
+    {% if families %}
+      <div class="home-materials">
+        {% for family in families %}
+          <a href="{{ family.url }}">{{ family.name }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
     <div class="grid grid--3">
-      {% for p in featured %}
+      {% for p in featured|slice(0, 3) %}
         <article class="card" data-reveal data-reveal-delay="{{ loop.index0 % 3 }}">
           <a href="{{ p.url }}" class="card__media">
             {% if p.image %}<img src="{{ p.image.src }}" alt="{{ p.image.alt }}" loading="lazy">{% endif %}
@@ -107,49 +69,95 @@
 </section>
 {% endif %}
 
-{# Explore by material #}
-{% if families %}
-<section class="section">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow">{{ 'Browse the Range'|t }}</span>
-      <h2>{{ 'Explore by Material'|t }}</h2>
+{% if applications %}
+<section class="section section--panel home-applications">
+  <div class="container container--wide split">
+    <div data-reveal>
+      <span class="eyebrow">{{ 'Applications'|t }}</span>
+      <h2>{{ 'Stone for every space'|t }}</h2>
+      <div class="home-application-links">
+        {% for application in applications %}
+          <a href="{{ application.url }}">{{ application.name }} <span aria-hidden="true">&rarr;</span></a>
+        {% endfor %}
+      </div>
     </div>
-    <div class="chips" style="gap:.8rem;" data-reveal>
-      {% for f in families %}
-        <a href="{{ f.url }}" class="chip" style="padding:.7rem 1.3rem;font-size:.95rem;">{{ f.name }}</a>
-      {% endfor %}
-    </div>
+    <a class="home-feature-image" href="{{ path('albaron_core.gallery') }}" aria-label="{{ 'Gallery'|t }}" data-reveal>
+      <img src="{{ file_url(directory ~ '/contact-bg.webp') }}" alt="" width="1480" height="840" loading="lazy">
+    </a>
   </div>
 </section>
 {% endif %}
 
-{# Capabilities #}
-<section class="section section--panel">
+<section class="section home-company">
   <div class="container container--wide">
-    <div class="section-head section-head--center" data-reveal>
-      <span class="eyebrow">{{ 'Why Al-Baron'|t }}</span>
-      <h2>{{ 'Built for Export Confidence'|t }}</h2>
+    <div class="split">
+      <a class="home-feature-image" href="{{ path('albaron_core.capabilities') }}" aria-label="{{ 'Capabilities'|t }}" data-reveal>
+        <img src="{{ file_url(directory ~ '/capabilities-bg.webp') }}" alt="" width="1490" height="796" loading="lazy">
+      </a>
+      <div data-reveal>
+        <span class="eyebrow">{{ 'Who We Are'|t }}</span>
+        <h2>{{ 'Built for Export Confidence'|t }}</h2>
+        <p class="lead">{{ 'From the historic quarries around Bethlehem, Al-Baron transforms raw Palestinian limestone and marble into precision-finished materials trusted on facades, floors and landmark interiors across the globe.'|t }}</p>
+        <p>{{ 'Every block is selected for character and consistency, then cut, finished and packed to exacting export standards — so what you specify is exactly what arrives on site.'|t }}</p>
+        <a href="{{ path('albaron_core.about') }}" class="btn btn--ghost">{{ 'Our Story'|t }}</a>
+      </div>
     </div>
-    <div class="grid grid--3">
-      <div class="feature-card" data-reveal>
-        <div class="feature-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-        <h3>{{ 'Quarry to Quay'|t }}</h3>
-        <p>{{ 'Full control from extraction to finishing and export packing ensures consistent color, thickness and quality across every order.'|t }}</p>
-      </div>
-      <div class="feature-card" data-reveal data-reveal-delay="1">
-        <div class="feature-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <h3>{{ 'Certified Quality'|t }}</h3>
-        <p>{{ 'Rigorous selection, calibrated finishes and documented quality controls — ready for demanding international specifications.'|t }}</p>
-      </div>
-      <div class="feature-card" data-reveal data-reveal-delay="2">
-        <div class="feature-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20Z"/></svg></div>
-        <h3>{{ 'Global Delivery'|t }}</h3>
-        <p>{{ 'Experienced export logistics and secure crating deliver Palestinian stone reliably to projects across the Gulf, Europe and beyond.'|t }}</p>
-      </div>
+    <div class="stats home-stats">
+      {% for stat in stats %}
+        <div class="stat">
+          <div class="stat__num">{{ stat.num }}</div>
+          <div class="stat__label">{{ stat.label }}</div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
+
+{% if projects %}
+<section class="section section--panel home-collection">
+  <div class="container container--wide">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">{{ 'Projects'|t }}</span>
+      <h2>{{ 'Project Examples'|t }}</h2>
+    </div>
+    <div class="grid grid--3">
+      {% for project in projects %}
+        <article class="card" data-reveal>
+          {% if project.image %}
+            <a class="card__media" href="{{ project.url }}" tabindex="-1" aria-hidden="true"><img src="{{ project.image.src }}" alt="" loading="lazy"></a>
+          {% endif %}
+          <div class="card__body">
+            <h3 class="card__title"><a href="{{ project.url }}">{{ project.title }}</a></h3>
+            <p>{{ project.summary }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <a class="btn btn--ghost" href="{{ path('albaron_core.projects') }}">{{ 'Projects'|t }}</a>
+  </div>
+</section>
+{% endif %}
+
+{% if latest_news %}
+<section class="section home-news">
+  <div class="container container--wide">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">{{ 'Latest News'|t }}</span>
+      <h2>{{ 'News'|t }}</h2>
+    </div>
+    <article class="split" data-reveal>
+      {% if latest_news.image %}
+        <a class="home-feature-image" href="{{ latest_news.url }}" tabindex="-1" aria-hidden="true"><img src="{{ latest_news.image.large }}" alt="" loading="lazy"></a>
+      {% endif %}
+      <div>
+        <time datetime="{{ latest_news.datetime }}">{{ latest_news.date }}</time>
+        <h3><a href="{{ latest_news.url }}">{{ latest_news.title }}</a></h3>
+        <a class="btn btn--ghost" href="{{ path('albaron_core.news') }}">{{ 'All News'|t }}</a>
+      </div>
+    </article>
+  </div>
+</section>
+{% endif %}
 
 {# CTA #}
 <section class="section">

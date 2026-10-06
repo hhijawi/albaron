@@ -181,9 +181,11 @@
         if (!nav) {
           return;
         }
+        const compact = window.matchMedia('(max-width: 1200px)');
         const setState = (open) => {
           toggle.classList.toggle('is-open', open);
           nav.classList.toggle('is-open', open);
+          nav.inert = compact.matches && !open;
           toggle.setAttribute('aria-expanded', String(open));
           if (backdrop) {
             backdrop.classList.toggle('is-visible', open);
@@ -197,6 +199,117 @@
         nav.querySelectorAll('a').forEach((link) =>
           link.addEventListener('click', () => setState(false)),
         );
+        document.addEventListener('keydown', (event) => {
+          if (!nav.classList.contains('is-open')) {
+            return;
+          }
+          if (event.key === 'Escape') {
+            setState(false);
+            toggle.focus();
+          }
+          if (event.key === 'Tab') {
+            const first = nav.querySelector('a[href]');
+            const last = [...nav.querySelectorAll('a[href]')].pop();
+            if (document.activeElement === toggle) {
+              event.preventDefault();
+              (event.shiftKey ? last : first)?.focus();
+            } else if ((!event.shiftKey && document.activeElement === last) || (event.shiftKey && document.activeElement === first)) {
+              event.preventDefault();
+              toggle.focus();
+            }
+          }
+        });
+        if (compact.addEventListener) {
+          compact.addEventListener('change', () => setState(false));
+        } else {
+          compact.addListener(() => setState(false));
+        }
+        setState(false);
+      });
+    },
+  };
+
+  Drupal.behaviors.albaronHeroGallery = {
+    attach(context) {
+      once('albaron-hero', '[data-hero-gallery]', context).forEach((hero) => {
+        const slides = [...hero.querySelectorAll('.hero__slide')];
+        const controls = hero.querySelector('.hero__controls');
+        const pause = hero.querySelector('[data-hero-pause]');
+        const counter = hero.querySelector('.hero__counter');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let index = 0;
+        let playing = !reducedMotion.matches;
+        let visible = true;
+        let timer;
+        let request = 0;
+
+        const show = async (direction) => {
+          const next = (index + direction + slides.length) % slides.length;
+          const currentRequest = ++request;
+          try {
+            await slides[next].decode();
+          } catch {
+            return;
+          }
+          if (currentRequest !== request || !hero.isConnected) {
+            return;
+          }
+          slides[index].classList.remove('is-active');
+          index = next;
+          slides[index].classList.add('is-active');
+          counter.textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+        };
+
+        const sync = () => {
+          window.clearInterval(timer);
+          const running = playing && visible && !document.hidden;
+          hero.classList.toggle('hero--playing', running);
+          pause.setAttribute('aria-label', playing ? pause.dataset.pauseLabel : pause.dataset.playLabel);
+          pause.title = pause.getAttribute('aria-label');
+          pause.firstElementChild.innerHTML = playing ? '&#10074;&#10074;' : '&#9654;';
+          if (running) {
+            timer = window.setInterval(() => {
+              if (!hero.isConnected) {
+                window.clearInterval(timer);
+                return;
+              }
+              show(1);
+            }, 7000);
+          }
+        };
+
+        hero.querySelector('[data-hero-prev]').addEventListener('click', () => {
+          playing = false;
+          sync();
+          show(-1);
+        });
+        hero.querySelector('[data-hero-next]').addEventListener('click', () => {
+          playing = false;
+          sync();
+          show(1);
+        });
+        pause.addEventListener('click', () => {
+          playing = !playing;
+          sync();
+        });
+        document.addEventListener('visibilitychange', sync);
+        const motionChanged = () => {
+          playing = !reducedMotion.matches;
+          sync();
+        };
+        if (reducedMotion.addEventListener) {
+          reducedMotion.addEventListener('change', motionChanged);
+        } else {
+          reducedMotion.addListener(motionChanged);
+        }
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver((entries) => {
+            visible = entries[0].isIntersecting;
+            sync();
+          }).observe(hero);
+        }
+        controls.hidden = false;
+        sync();
       });
     },
   };

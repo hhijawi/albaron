@@ -28,6 +28,27 @@ msgstr "الشارع الرئيسي، مراح رباح، بيت لحم، فلس
 msgid "Phone"
 msgstr "الهاتف"
 
+msgid "Al-Baron"
+msgstr "البارون"
+
+msgid "Previous image"
+msgstr "الصورة السابقة"
+
+msgid "Next image"
+msgstr "الصورة التالية"
+
+msgid "Pause slideshow"
+msgstr "إيقاف عرض الصور مؤقتاً"
+
+msgid "Play slideshow"
+msgstr "تشغيل عرض الصور"
+
+msgid "Stone for every space"
+msgstr "حجر لكل مساحة"
+
+msgid "Open in Google Maps"
+msgstr "فتح في خرائط Google"
+
 msgid "A controlled workflow, quarry to quay"
 msgstr "سير عمل محكوم، من المحجر إلى الميناء"
 
